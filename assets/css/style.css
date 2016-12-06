@@ -33,6 +33,10 @@ body {
     right: 0;
 }
 
+.carousel-indicators > li, li.active {
+    margin: 1px 2px;
+}
+
 .carousel-holder {
     margin-bottom: 30px;
 }
@@ -57,7 +61,14 @@ body {
 
 .thumbnail {
     padding: 0;
-    background: rgba(255,255,255, 0.95);
+    background: rgba(255,255,255, 0.90);
+    border: 3.5px solid transparent;
+    transition: 1s;
+    border-radius: 0;
+}
+.thumbnail:hover {
+    border-color: rgba(15,25,0,0.6);
+    transition: 1s;
 }
 
 .thumbnail .caption-full {
