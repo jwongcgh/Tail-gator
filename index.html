@@ -15,6 +15,31 @@
     <link href="assets/css/style.css" rel="stylesheet">
     <script src="assets/javascript/script.js"></script>
     <script src ="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js" type="text/javascript"></script>
+     <script id="address-template" type="text/x-handlebars-template">
+        {{#each foodItem}}
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+                <img src="{{image}}" alt="{{name}}">
+                <div class="caption">
+                    <h4 class="pull-right">{{price}}</h4>
+                    <h4><a href="#">{{name}}</a>
+                    </h4>
+                    <p>{{description}}</p>
+                </div>
+                <div class="ratings">
+                    <p class="pull-right">{{ratingCount}} Reviews</p>
+                    <p>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </script>
 </head>
 
 <body>
@@ -116,36 +141,16 @@
 
                 <div class="row">
 
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">$50.99</h4>
-                                <h4><a href="#">Burger</a>
-                                </h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic necessitatibus, voluptates vel unde. Blanditiis eligendi ipsa pariatur incidunt natus! Consequatur eveniet non, natus nesciunt molestiae eos autem doloribus vero quibusdam.</p>
-                            </div>
-                            <div class="ratings">
-                                <p class="pull-right">15 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    
+                    <div class="content-placeholder"></div>
 
-                    <div class="col-sm-4 col-lg-4 col-md-4">
+                    <!-- <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
                             <img src="http://placehold.it/320x150" alt="">
                             <div class="caption">
                                 <h4 class="pull-right">$35.99</h4>
                                 <h4><a href="#">Hotdogs</a>
                                 </h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, molestias a perferendis hic tempora sed eligendi qui quod explicabo dolores pariatur cupiditate dicta obcaecati aliquid dignissimos vero, totam ex placeat.</p>
                             </div>
                             <div class="ratings">
                                 <p class="pull-right">12 reviews</p>
@@ -158,29 +163,9 @@
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">$75.99</h4>
-                                <h4><a href="#">Meat Lovers</a>
-                                </h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga rerum quam deleniti explicabo nihil, vitae quidem magnam eum cum at reprehenderit vel maiores amet nam adipisci placeat! Odit rem, a.</p>
-                            </div>
-                            <div class="ratings">
-                                <p class="pull-right">31 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+<!--  -->
 
                 </div>
 
