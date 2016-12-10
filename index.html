@@ -8,7 +8,7 @@
     <meta name="author" content="">
 
     <title>Tail-gator</title>
-
+    <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -39,18 +39,6 @@
             </div>
         </div>
         {{/each}}
-
-    <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyCV0ZCtJMVroHwc0NDR7jYCAzmil62QvJM",
-        authDomain: "tail-gator.firebaseapp.com",
-        databaseURL: "https://tail-gator.firebaseio.com",
-        storageBucket: "tail-gator.appspot.com",
-        messagingSenderId: "385197891210"
-      };
-      firebase.initializeApp(config);
     </script>
 </head>
 
@@ -197,8 +185,37 @@
             </div>
         </div>
     </footer>
+    <script src="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.js"></script>
+    <script>
+          // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBMWTK4u_9IMZLWtQMVO3YYWoxGCdXZdsc",
+            authDomain: "prown-e0b61.firebaseapp.com",
+            databaseURL: "https://prown-e0b61.firebaseio.com",
+            storageBucket: "prown-e0b61.appspot.com",
+            messagingSenderId: "709868742724"
+        };
+        firebase.initializeApp(config);
+         var uiConfig = {
+        signInSuccessUrl: '<url-to-redirect-to-on-success>',
+        signInOptions: [
+          // Leave the lines as is for the providers you want to offer your users.
+          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+          firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+          firebase.auth.EmailAuthProvider.PROVIDER_ID
+        ],
+        // Terms of service url.
+        tosUrl: '<your-tos-url>'
+      };
 
-   
+      // Initialize the FirebaseUI Widget using Firebase.
+      var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      // The start method will wait until the DOM is loaded.
+      ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css" />
+    <div id="firebaseui-auth-container"></div>
+    
 </body>
 
 </html>
