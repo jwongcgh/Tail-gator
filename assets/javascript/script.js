@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-	
+	//Test
 	function populateCarouselCount () {
 		//Take count of images from dom and dynamically generate dot indicators on carousel
 		var carouselCount = Array.from(document.querySelectorAll('.carousel-inner .item'));
