@@ -39,11 +39,22 @@
             </div>
         </div>
         {{/each}}
+
+    <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCV0ZCtJMVroHwc0NDR7jYCAzmil62QvJM",
+        authDomain: "tail-gator.firebaseapp.com",
+        databaseURL: "https://tail-gator.firebaseio.com",
+        storageBucket: "tail-gator.appspot.com",
+        messagingSenderId: "385197891210"
+      };
+      firebase.initializeApp(config);
     </script>
 </head>
 
 <body>
-    <!-- Test for merging branches -->
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
