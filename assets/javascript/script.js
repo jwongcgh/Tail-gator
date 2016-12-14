@@ -13,9 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 
+	
+
+
 	function init () {
 		populateCarouselCount();
-	}
+		
+		}
 
 	init();
 }); //DOMContentLoaded

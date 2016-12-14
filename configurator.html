@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Configurator - Tail-gator</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link href="assets/css/style.css" rel="stylesheet">
+    <script src ="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js" type="text/javascript"></script>
+    <!-- <script src="assets/javascript/configurator.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCV0ZCtJMVroHwc0NDR7jYCAzmil62QvJM",
+        authDomain: "tail-gator.firebaseapp.com",
+        databaseURL: "https://tail-gator.firebaseio.com",
+        storageBucket: "tail-gator.appspot.com",
+        messagingSenderId: "385197891210"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script type="text/javascript">
+        // var packages = require('configurator').packages;
+        // console.log(packages)
+        console.log(localStorage.getItem('package'));
+    </script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div></div>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Tail-gator</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                </ul>
+                <ul class='nav navbar-nav navbar-right'>
+                    <li>
+                        <a  href="#">View Cart <span class="glyphicon glyphicon-shopping-cart"></span></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+            <div class="jumbotron jumbotronTransparent">
+                <h2 class='h2'>Please select a package below.</h2>
+                <p>We offer packages for 10, 20, 30, or 40 people! Pick the package that suits your tailgate and we can start customizing for your needs.</p>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="content-placeholder"></div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="text-center">Copyright &copy; Tail-gator 2016. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+   
+</body>
+</html>
