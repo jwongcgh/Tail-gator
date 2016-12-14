@@ -39,7 +39,11 @@
         document.getElementById('cancelButton').addEventListener('click', () => {
             localStorage.clear();
             window.location.href = 'packages.html';
-        })
+        });
+        document.getElementById('checkoutButton').addEventListener('click', () => {
+            window.location.href = 'billing.html';
+
+        });
     });
     </script>
 </head>
@@ -101,7 +105,9 @@
                     Tents
                     </li>
                 </ul>
-                <button id="cancelButton" class="btn btn-default" type="button">Cancel Order</button>
+                <button id="checkoutButton" class="btn btn-primary pull-right" type="button">Checkout</button>
+                <button id="cancelButton" class="btn btn-default pull-right" type="button">Cancel Order</button>
+                
             </div>
             </div>
         </div>
