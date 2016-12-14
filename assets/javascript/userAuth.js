@@ -11,9 +11,7 @@ var database = firebase.database()
 var auth = firebase.auth()
 
 $(document).ready(function() {
-    var provider = new firebase.auth.FacebookAuthProvider();
-    provider.addScope('email');
-provider.addScope('user_friends');
+    var provider = new firebase.auth.GoogleAuthProvider();
     auth.signInWithPopup(provider);
     document.getElementById('submit').addEventListener('click', function() {
         var email = document.getElementById('email').value
