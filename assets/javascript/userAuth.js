@@ -31,7 +31,7 @@ $(document).ready(function() {
         var pw = document.getElementById('password').value        
         auth.signInWithEmailAndPassword(email, pw).catch(e => console.log(e.message))
     })
-	var ref = new Firebase("https://<YOUR-FIREBASE-APP>.firebaseio.com");
+	var ref = new firebase("https://<YOUR-FIREBASE-APP>.firebaseio.com");
     ref.onAuth(function(authData) {
 		if (authData && isNewUser) {
         // save the user's profile into Firebase so we can list users,
