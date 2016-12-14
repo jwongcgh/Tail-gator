@@ -79,3 +79,9 @@ body {
     height: 54px;
     width: 54px;
 }
+.signup {
+    border: 2px solid black;
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
