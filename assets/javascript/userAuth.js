@@ -11,8 +11,16 @@ var database = firebase.database()
 var auth = firebase.auth()
 
 $(document).ready(function() {
-    var provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider);
+    
+    var provider;
+    document.getElementById('facebook').onclick = function() {
+        provider = new firebase.auth.FacebookAuthProvider();
+        auth.signInWithPopup(provider);
+    }
+    document.getElementById('googleP').onclick = function() {
+        provider = new firebase.auth.GoogleAuthProvider();
+        auth.signInWithPopup(provider);
+    }
     document.getElementById('submit').addEventListener('click', function() {
         var email = document.getElementById('email').value
         var pw = document.getElementById('password').value        
