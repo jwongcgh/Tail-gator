@@ -59,13 +59,14 @@ $(document).ready(function() {
     auth.onAuthStateChanged(function(user) {
         if(user) {
             $('.signinTab').hide()
-            $('.signoutTab').show()
+            $('#signoutTab').show()
         } else {
             if(window.location.pathname.match('/profile.html')) {
                 window.location.assign('index.html')
             }
         }
     })
+})
 //	var ref = new firebase("https://<YOUR-FIREBASE-APP>.firebaseio.com");
 //    ref.onAuth(function(authData) {
 //		if (authData && isNewUser) {
@@ -78,4 +79,3 @@ $(document).ready(function() {
 //		});
 //		}
 //	});
-})
