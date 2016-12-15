@@ -81,58 +81,48 @@
     			</div>
     			<div class="panel-body">
     				<div class="table-responsive">
-    					<table class="table table-condensed">
+    					<table id="tableInv" class="table table-condensed">
     						<thead>
                                 <tr>
+                                    <td><strong></strong></td>
         							<td><strong>Item</strong></td>
-        							<td class="text-center"><strong>Price</strong></td>
         							<td class="text-center"><strong>Quantity</strong></td>
+        							<td class="text-center"><strong>Price</strong></td>
         							<td class="text-right"><strong>Totals</strong></td>
                                 </tr>
     						</thead>
-    						<tbody>
-    							<!-- foreach ($order->lineItems as $line) or some such thing here -->
+                            <tbody id="rows_invoice">
+                                    <!-- here goes items list -->
+                            </tbody>
+<!-- ****************** -->
+    						<tbody id="extra_rows">
     							<tr>
-    								<td>burger</td>
-    								<td class="text-center">$10.99</td>
-    								<td class="quantity text-center">1</td>
-    								<td class="text-right">$10.99</td>
-    							</tr>
-                                <tr>
-        							<td>chicken</td>
-    								<td class="text-center">$20.00</td>
-    								<td class="text-center">3</td>
-    								<td class="text-right">$60.00</td>
-    							</tr>
-                                <tr>
-            						<td>tv</td>
-    								<td class="text-center">$600.00</td>
-    								<td class="text-center">1</td>
-    								<td class="text-right">$600.00</td>
-    							</tr>
-    							<tr>
-    								<td class="thick-line"></td>
-    								<td class="thick-line"></td>
-    								<td class="thick-line text-center"><strong>Subtotal</strong></td>
-    								<td class="thick-line text-right">$670.99</td>
-    							</tr>
-    							<tr>
+                                    <td class="no-line"></td>
     								<td class="no-line"></td>
     								<td class="no-line"></td>
-    								<td class="no-line text-center"><strong>Shipping</strong></td>
-    								<td class="no-line text-right">$15</td>
+    								<td class="no-line"><strong>Subtotal:</strong></td>
+    								<td class="no-line text-right subtotal"></td>
+    							</tr>
+    							<tr>
+                                    <td class="no-line"></td>
+                                    <td class="no-line"></td>
+                                    <td class="no-line"></td>
+    								<td class="no-line"><strong>Shipping:</strong></td>
+    								<td class="no-line text-right shipping"></td>
     							</tr>
                                 <tr>
                                     <td class="no-line"></td>
                                     <td class="no-line"></td>
-                                    <td class="no-line text-center"><strong>Tax</strong></td>
-                                    <td class="no-line text-right">$15</td>
+                                    <td class="no-line"></td>
+                                    <td class="no-line"><strong>Tax</strong></td>
+                                    <td class="no-line text-right tax"></td>
                                 </tr>
     							<tr>
+                                    <td class="no-line"></td>
     								<td class="no-line"></td>
     								<td class="no-line"></td>
-    								<td class="no-line text-center"><strong>Total</strong></td>
-    								<td class="no-line text-right totalCharge">$685.99</td>
+    								<td class="no-line"><strong>Total:</strong></td>
+    								<td class="no-line text-right totalCharge"></td>
     							</tr>
     						</tbody>
     					</table>
