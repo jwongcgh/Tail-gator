@@ -74,6 +74,29 @@ $(document).ready(function() {
             RowTds.eq(4).html(); // update list item button: "button here"
             RowTds.eq(5).text((array[j].price * array[j].quantity).toFixed(2));
 
+
+            // @@@ invoice @@@ //
+            // item
+            // quantity
+            // unit price
+            // totals
+
+            // subtotal
+            // tax
+            // shipping
+            // total
+
+
+
+
+
+
+
+
+
+
+
+
         } // end for-loop populating cart
 
         charges();  //
@@ -86,29 +109,38 @@ $(document).ready(function() {
     function charges() {
         var subtotal = 0.00;
         var totalCharge = 0.00;
-        var shipping = 20;
+        var shipping = 59.00;
         var tax = 0.0825;
 
         // adds items prices
         for (var i = 0; i < array.length; i++) {
             subtotal += parseFloat(array[i].price * array[i].quantity);
-            $("#subtotal").html(subtotal.toFixed(2));
+            $(".subtotal").html(subtotal.toFixed(2));
         }
 
-        $("#tax").html((subtotal * tax).toFixed(2));
+        $(".tax").html((subtotal * tax).toFixed(2));
 
         if (subtotal == 0) {
             shipping = 0;
-            $("#shipping").html("0.00");
+            $(".shipping").html("0.00");
         } else {
-            $("#shipping").html(shipping.toFixed(2));
+            $(".shipping").html(shipping.toFixed(2));
         }
 
-        totalCharge = subtotal * (1 + tax) + shipping;
-        $("#totalCharge").html(totalCharge.toFixed(2));
+        totalCharge = subtotal * (1 + tax) + shipping
+        $(".totalCharge").html(totalCharge.toFixed(2));
+        console.log(typeof totalCharge.toFixed(2));
+        console.log(totalCharge);
+        console.log(typeof totalCharge.toFixed(2));
 
+// ******************************************************************************* //
+// Start *** pass charge to paypal *** //
+// ******************************************************************************* //
+
+    toPayPal = totalCharge.toFixed(2);
+    $('#subtpay').val(toPayPal);
+    console.log($('#subtpay').val());
     } // end charges function
-
 
 // ******************************************************************************* //
 // Start *** update cart at checkout *** //
