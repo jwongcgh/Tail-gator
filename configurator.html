@@ -69,6 +69,32 @@
                     <li>
                         <a  href="configurator.html">View Cart  <span class="glyphicon glyphicon-shopping-cart"></span></a>
                     </li>
+                    <li>
+                        <a class='navbar-brand' id='signoutTab' role='button' style='display: none' onclick='signOut()'>Sign Out</a>
+                    </li>
+					<li>
+						<a href='profile.html' class='signoutTab' style='display: none;'>Profile</a>
+					</li>
+                    <li class="dropdown signinTab">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign In <span class="caret"></span></a>
+                        <ul class="dropdown-menu" style='padding:10px;'>
+                            <li>Sign in with:</li>
+                            <li>
+                                <img class='signin' id='googleP' src="assets/images/7-128.png">
+                                <img class='signin' id='facebook' src="assets/images/facebook-128.png">
+                                <img class='signin' src="assets/images/Twitter-icon.png">
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li><input type='text' id='loginEmail' placeholder='Email'></li>
+                            <li><input type='password' id='loginPW' placeholder='Password'></li>
+                            <li role="separator" class="divider"></li>
+                            <li><input type='submit' value='Submit' id='submit'></li>
+                            
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle='dropdown' role="button" aria-haspopup="true" aria-expanded="false">Sign Up</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
