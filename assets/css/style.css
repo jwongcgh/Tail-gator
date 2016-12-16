@@ -102,3 +102,17 @@ hr.packageHR {
     height: 170%;
     margin-top: -8px;
 }
+
+.configBody {
+    background-color: white;
+}
+
+input.form-control {
+height: 100%;}
+
+.input-group-btn button, input.form-control {
+    
+    line-height: 1;
+    padding: 0 6px;
+    position: default;
+} 
