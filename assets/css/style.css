@@ -101,6 +101,8 @@ a:hover {
     padding-top: 10px;
     margin-top: 60px;
     padding-bottom: 10px;
+    background-color: white;
+    padding: 25px 25px;
     border-radius: 10px;
 }
 
@@ -148,4 +150,30 @@ input.largerCheckbox
     /*padding: 0;*/
     /*margin: 0;*/
     /*padding-right: 10px;*/
+}
+
+input.error {
+	border-color: red;
+}
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
 }
