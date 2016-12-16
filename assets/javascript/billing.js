@@ -61,6 +61,10 @@ $(document).ready(function() {
                     newInput.attr("id", "quant_" + j);
                     // placeholder value is inital chosen item-quantity 
                     newInput.attr("placeholder", array[j].quantity);
+                    if (array[j].price == 0.00) {
+                        newInput.attr('disabled', true);
+                    }
+
                     newData.append(newInput);
                 }
 
@@ -68,7 +72,10 @@ $(document).ready(function() {
                 if (i == 4) {
                     var newButton = $("<button>");
                     newButton.addClass("update_item_Butt");
-                    newButton.addClass("btn btn-primary");
+                    newButton.addClass("btn btn-default");
+                    if (array[j].price == 0.00) {
+                        newButton.addClass('disabled');
+                    }
                     newButton.attr("data-update", j);
                     newButton.text("update");
                     newData.append(newButton);
@@ -190,7 +197,7 @@ $(document).ready(function() {
                 // checking array has been updated in database
                 array = JSON.parse(localStorage.getItem("myarray"));
                 for (var a=0; a < array.length; a++) {
-                    console.log("value: " + Object.values(array[a]));
+                    console.log("value: ", Object.values(array[a]));
                 } 
                 // end checking array has been updated in database
                 // &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& //
@@ -206,14 +213,13 @@ $(document).ready(function() {
 // Start *** go back to mainpage *** //
 // ******************************************************************************* //
 
-// !!! Not working !!! 
-// !!! Not working !!! 
-// !!! Not working !!! 
+//Now it works :) 
 
     $("#cancel").on("click", function() {
         // empty order array in database
         array = [];
         localStorage.clear();
+        window.location.href = 'index.html';
     }); // end cancel order
 
 

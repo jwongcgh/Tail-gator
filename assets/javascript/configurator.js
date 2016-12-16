@@ -4,7 +4,7 @@ var context = { // Define data object
 			{	
 				"name": "10",
 				"price": 59.99,
-				"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste consectetur veritatis qui est vel, rerum aperiam reprehenderit, tempora quibusdam mollitia.",
+				"description": "Suitable for approximately 10 people.",
 				'image': "assets/images/package-10.jpg",
 				'features': {
 					grill: 1,
@@ -16,7 +16,7 @@ var context = { // Define data object
 			{	
 				"name": "20",
 				"price": 119.99,
-				"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste consectetur veritatis qui est vel, rerum aperiam reprehenderit, tempora quibusdam mollitia.",
+				"description": "Suitable for approximately 20 people.",
 				'image': "assets/images/package-20.gif",
 				'features': {
 					grill: 1,
@@ -28,7 +28,7 @@ var context = { // Define data object
 			{	
 				"name": "30",
 				"price": 199.99,
-				"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste consectetur veritatis qui est vel, rerum aperiam reprehenderit, tempora quibusdam mollitia.",
+				"description": "Suitable for approximately 30 people.",
 				'image': "assets/images/package-30.jpg",
 				'features': {
 					grill: 2,
@@ -40,7 +40,7 @@ var context = { // Define data object
 			{	
 				"name": "40",
 				"price": 259.99,
-				"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste consectetur veritatis qui est vel, rerum aperiam reprehenderit, tempora quibusdam mollitia.",
+				"description": "Suitable for approximately 40 people.",
 				'image': "assets/images/package-40.jpg",
 				'features': {
 					grill: 2,
@@ -85,16 +85,11 @@ var buttonClicked = function (event) {
 	//Add package name
 	addItem(`${thisPackage.name} person package`, thisPackage.price, 1
 	);
+	//Get features' keys and iterate of that array
 	var package = Object.getOwnPropertyNames(thisPackage.features);
-	console.log(package)
 	package.map((x) => {
 		addItem(x, 0.00, thisPackage.features[x]);
 	});
-	console.log(myarray[0])
-	// for (i=0; i < Object.keys(thisPackage.features).length; i++) {
-	// 	addItem()
-	// }
-
 	localStorage.setItem('myarray', JSON.stringify(myarray));
 
 
