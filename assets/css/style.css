@@ -87,7 +87,10 @@ a:hover {
     padding: 9px;
     color: #333;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7becf37f6bef5eb753de054def92d3e15ff9a511
 .signin {
     height: 54px;
     width: 54px;
@@ -97,9 +100,14 @@ a:hover {
     background-color: white;
     padding-top: 10px;
     padding-bottom: 10px;
+<<<<<<< HEAD
 }
 
 
+=======
+    border-radius: 10px;
+}
+>>>>>>> 7becf37f6bef5eb753de054def92d3e15ff9a511
 hr.packageHR {
     border-top: 2px solid grey;
     margin: 10px 2px;
@@ -112,6 +120,7 @@ hr.packageHR {
 
 .logoImage {
     height: 170%;
+<<<<<<< HEAD
     margin-top: -8px;
 }
 
@@ -129,3 +138,6 @@ height: 100%;}
     position: default;
 } 
 
+=======
+    margin-top: -8px
+>>>>>>> 7becf37f6bef5eb753de054def92d3e15ff9a511

@@ -10,14 +10,14 @@
 var database = firebase.database()
 var auth = firebase.auth()
 var signup = function() {
-	
-    $('#sub_signup').prop('disabled',true)
 	name = document.getElementById('sub_name').value;
 	email = document.getElementById('sub_email').value;
 	zip = document.getElementById('sub_zip').value;
 	pw = document.getElementById('sub_password').value;
 	city = document.getElementById('sub_city').value;
 	address = document.getElementById('sub_address').value;
+    if (zip.length > 5) {console.log ('nah'); return}
+    console.log(zip.length)
     console.log(name,email,zip,pw,address,city)
     database.ref('users/' + email.replace(/\.\w+/,'')).set({
         name: name,
@@ -29,6 +29,7 @@ var signup = function() {
         var errorCode = error.code;
         var errorMessage = error.message;
     })
+    $('#sub_signup').prop('disabled',true)
 }
 var signOut = function() {
     auth.signOut()
@@ -57,11 +58,15 @@ $(document).ready(function() {
     })
     auth.onAuthStateChanged(function(user) {
         if(user) {
-            $('#signinTab').hide()
+            $('.signinTab').hide()
             $('#signoutTab').show()
+        } else {
+            if(window.location.pathname.match('/profile.html')) {
+                window.location.assign('index.html')
+            }
         }
-        else {console.log('Unlogged')}
     })
+})
 //	var ref = new firebase("https://<YOUR-FIREBASE-APP>.firebaseio.com");
 //    ref.onAuth(function(authData) {
 //		if (authData && isNewUser) {
@@ -74,4 +79,3 @@ $(document).ready(function() {
 //		});
 //		}
 //	});
-})
