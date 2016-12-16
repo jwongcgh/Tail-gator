@@ -1,5 +1,5 @@
   // Initialize Firebase
-  var config = {
+var config = {
     apiKey: "AIzaSyBMWTK4u_9IMZLWtQMVO3YYWoxGCdXZdsc",
     authDomain: "prown-e0b61.firebaseapp.com",
     databaseURL: "https://prown-e0b61.firebaseio.com",
@@ -33,7 +33,7 @@ var signup = function() {
         $('#sub_address').addClass('error');
         errors = true;
     }
-    if (!email.match(/\@MAIL\.COM/)) {
+    if (!email.match('@MAIL.COM')) {
         $('#sub_email').addClass('error');
         errors = true;
     }
@@ -67,17 +67,21 @@ var signup = function() {
         var errorCode = error.code;
         var errorMessage = error.message;
     })
-	window.location.assign('index.html')
+    var reload = setTimeout(function() {window.location.assign('index.html')}, 1000)
+	
 }
 var signOut = function() {
     auth.signOut();
     location.reload();
 }
+
 $(document).ready(function() {
 	
 	//Start sign up mod
-	$('#sub_phone').mask('(999) 999-9999');
-	$('#sub_zip').mask('99999');
+    if (window.location.pathname.match('/signup.html')) {
+	   $('#sub_phone').mask('(999) 999-9999');
+	   $('#sub_zip').mask('99999');
+    }
 	//End sign up mod
 
     document.getElementById('facebook').onclick = function() {
