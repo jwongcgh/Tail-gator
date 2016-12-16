@@ -129,3 +129,7 @@ input.form-control {
     padding: 0 6px;
     position: default;
 } 
+.carousel-inner > .item > img {
+    margin: 0 auto;
+    height: 400px;
+}

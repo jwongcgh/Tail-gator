@@ -41,12 +41,7 @@
 
                         <a href="billing.html">View Cart <span class="glyphicon glyphicon-shopping-cart"></span></a>
                     </li>
-                    <!-- Sign in block -->
-<!--
-                    <li>
-                    <button type='button' class='btn btn-default navbar-btn' id='signoutTab' style='display: none' onclick='signOut()'>Sign Out</button>
-                    </li>
--->
+            
                     <li>
                         <a class='navbar-brand' id='signoutTab' role='button' style='display: none' onclick='signOut()'>Sign Out</a>
                     </li>
@@ -80,12 +75,11 @@
     
 
     <!-- Page Content -->
-    <div class="container">
+    <div class="container-fluid">
 
         <div class="row">
 
 
-            <div class="col-md-8 col-md-offset-2">
 
                 <div class="row carousel-holder">
 
@@ -138,7 +132,8 @@
                 </div>
 
                 <div class="row">
-                    
+                                <div class="col-md-8 col-md-offset-2">
+
                     <div class="content-placeholder"></div>
 
                     <div class="col-sm-4 col-lg-4 col-md-4">
@@ -196,6 +191,7 @@
         </div>
     </footer>
     <script src="assets/javascript/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.js"></script>
     <script src='assets/javascript/userAuth.js'></script>
