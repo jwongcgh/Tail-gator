@@ -48,7 +48,7 @@ $(document).ready(function() {
             }
         }
     })
-    var signup = function() {
+    $('#sub_signup').on('click', function() {
         var fname = document.getElementById('sub_fname').value.toUpperCase();
         var lname = document.getElementById('sub_lname').value.toUpperCase();
         var email = document.getElementById('sub_email').value.toUpperCase();
@@ -107,7 +107,7 @@ $(document).ready(function() {
         var errorMessage = error.message;
     })
     var reload = setTimeout(function() {window.location.assign('index.html')}, 1000)	
-}
+})
     $('#signoutTab').on('click', function() {
         auth.signOut();
         location.reload();
