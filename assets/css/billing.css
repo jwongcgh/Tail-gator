@@ -1,3 +1,13 @@
+html, body {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+#wrapper {
+    max-width: 960px;
+}
+
+
 .item_div {
     border: blue dotted 1px;
     height:;
@@ -29,6 +39,15 @@ a:visited {
 }
 
 
+/***********************************************************/
+/*** invoice ***********************/
+/***********************************************************/
+
+.jumbotron {
+    text-align: center;
+    padding: 20px 0 20px 0;
+    margin-top: 5px;
+}
 
 
 
@@ -36,10 +55,78 @@ a:visited {
 
 
 
+.invoice-title h2, .invoice-title h3 {
+    display: inline-block;
+}
+
+.table > tbody > tr > .no-line {
+    border-top: none;
+}
+
+.table > thead > tr > .no-line {
+    border-bottom: none;
+}
+
+.table > tbody > tr > .thick-line {
+    border-top: 2px solid;
+}
+
+/***********************************************************/
+/*** paypal button and pricing table ***********************/
+/***********************************************************/
+
+#paypalButt {
+    display: inline-block;
+}
+
+
+.well {
+    text-align: center;
+    width: 100%;
+
+}
+
+iframe[seamless] { 
+    align-content: center;
+    display: block;
+    overflow: visible;
+    border: none;
+    /*width: 300px;
+    height: 200px;*/
+    /*border-top: #c00 1px dotted;
+  border-right: #c00 2px dotted;
+  border-left: #c00 2px dotted;
+  border-bottom: #c00 4px dotted;*/
+}
+
+#payCont {
+    padding: 0;
+}
+
+#paypalButt {
+    /*width: 50px;
+    height: 150px;*/
+    /*padding: 25px 0 0 25px;
+    margin: 0 auto;
+*/
+}
+
+.borderless tbody tr td {
+    border: none;
+}
+
+.borderless thead tr th {
+    border: none;
+}
 
 
 
-/*###################*/
+
+
+
+/***********************************************************/
+/*** carusel template ***********************/
+/***********************************************************/
 
         .wizard {
     margin: 20px auto;
