@@ -36,7 +36,7 @@ $(document).ready(function() {
     //     { foodName: 'utensils', price: 12.99, quantity: 25 }
     // ]
 
-    // // store
+    // store
     // localStorage.clear();
     // localStorage.setItem("myarray", JSON.stringify(myarray));
 
@@ -49,7 +49,7 @@ $(document).ready(function() {
     // display object values
     // &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& //
                 for (var a=0; a < array.length; a++) {
-            console.log("value: " + Object.values(array[a]));
+            console.log("value initial: " + Object.values(array[a]));
    } 
     // &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& //
 
@@ -123,7 +123,7 @@ $(document).ready(function() {
 
     function invoice_pop() {
 
-
+            $(".rows_invoice").html("");
 // Start *** populate page 3 - invoice *** //
 
                for (var k = 0; k < array.length; k++) {
@@ -168,7 +168,7 @@ $(document).ready(function() {
     function charges() {
         var subtotal = 0.00;
         var totalCharge = 0.00;
-        var shipping = 59.00;
+        var shipping = 59.99;
         var tax = 0.0825;
 
         // adds items prices
@@ -199,7 +199,7 @@ $(document).ready(function() {
 // Start *** pass charge to paypal *** //
 // ******************************************************************************* //
 
-    toPayPal = totalCharge.toFixed(2);
+    toPayPal = subtotal.toFixed(2);
     $('#subtpay').val(toPayPal);
     // console.log($('#subtpay').val());
     } // end charges function
@@ -227,7 +227,7 @@ $(document).ready(function() {
 
                 array = JSON.parse(localStorage.getItem("myarray"));
                 for (var a=0; a < array.length; a++) {
-                    console.log("value: " + Object.values(array[a]));
+                    console.log("value after: " + Object.values(array[a]));
                 } 
 
                 // end checking array has been updated in database
@@ -255,7 +255,7 @@ $(document).ready(function() {
     var address;
     var phone;
     var delivDate = "12/10/1978";
-
+    var emptyfield = 0
     // start local test data
     // var firstName = "Howdy";
     // var lastName = "Hey";
@@ -299,8 +299,9 @@ $("#shipInfo").on("click", function () {
 
 
 
-	var emptyfield = firstName.length * lastName.length * address.length * city.length * state.length *
+	    emptyfield = firstName.length * lastName.length * address.length * city.length * state.length *
                         zip.length * phone.length;
+        console.log("emotyfield: " + emptyfield);
         // console.log(delivDate.length);
         // console.log(delivDate);
 
@@ -325,9 +326,6 @@ $("#shipInfo").on("click", function () {
 
 function checkInputs () {
 
-        var emptyfield = firstName.length * lastName.length * address.length * city.length * state.length *
-                        zip.length * phone.length;
-
         if (emptyfield == 0 || firstName.match(/[^a-zA-Z]/) || lastName.match(/[^a-zA-Z]/) || state.length !==2 ||
             state.match(/[^a-zA-Z]/) || zip.length !== 5 || zip.match(/[^0-9]/) ||
             phone.match(/[^\d]/) || phone.length !== 9) {
@@ -337,6 +335,7 @@ function checkInputs () {
             console.log("next_step: " + next_step);
         } else {
             next_step = true;
+            console.log("next_step: " + next_step);
         }
 
         // return false;
@@ -348,17 +347,17 @@ function checkInputs () {
 // ******************************************************************************* //
 // Start *** read databse for shipping info  *** //
 // ******************************************************************************* //
-    
+
     database.ref('/users/' + 'shipping').on("value", function(snapshot){
     if (snapshot.child('email').exists()) {
-    // firstName = snapshot.val().firstName;
-    // lastName = snapshot.val().lastName;
-    // address = snapshot.val().address;
-    // city = snapshot.val().city;
-    // state = snapshot.val().state;
-    // zip = snapshot.val().zip;
-    // email = snapshot.val().email;
-    // phone = snapshot.val().phone; 
+    firstName = snapshot.val().firstName;
+    lastName = snapshot.val().lastName;
+    address = snapshot.val().address;
+    city = snapshot.val().city;
+    state = snapshot.val().state;
+    zip = snapshot.val().zip;
+    email = snapshot.val().email;
+    phone = snapshot.val().phone; 
 
     // console.log("firstName: " + firstName);
     // console.log("lastName: " + lastName);
@@ -441,14 +440,17 @@ $(document).on('change', '#checkbox', function() {
 
     $(".next-step").click(function (e) {
         if (next_step) {
-        var $active = $('.wizard .nav-tabs li.active');
+         var $active = $('.wizard .nav-tabs li.active');
         $active.next().removeClass('disabled');
         nextTab($active);
         } else {
             console.log("invalid form entry");
         }
+        next_step = false;
+        console.log(next_step);
     });
-    $(".prev-step").click(function (e) {
+
+$(".prev-step").click(function (e) {
 
         var $active = $('.wizard .nav-tabs li.active');
         prevTab($active);

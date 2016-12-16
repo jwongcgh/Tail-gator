@@ -5,11 +5,11 @@
     <meta charset="utf-8">
     <!-- modified from a bootsnip template -->
     <title>Billing</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/billing.css">
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
 </head>
 
@@ -31,21 +31,21 @@
             </a>
         </li>
         <li role="presentation" class="disabled">
-            <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Delivery Destination">
-                <span class="round-tab">
-                    <i class="glyphicon glyphicon-pencil"></i>
-                </span>
-            </a>
-        </li>
+                        <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                            </span>
+                        </a>
+                    </li>
         <li role="presentation" class="disabled">
-            <!-- <li role="presentation" class="disabled"> -->
             <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Confirm Transaction">
                 <span class="round-tab">
                     <i class="glyphicon glyphicon-picture"></i>
                 </span>
             </a>
         </li>
-        <li role="presentation">
+        <!-- <li role="presentation" class="disabled"> -->
+        <li role="presentation" >
             <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
                 <span class="round-tab">
                     <i class="glyphicon glyphicon-ok"></i>
@@ -76,7 +76,7 @@
             </div>
         </div>
         <div class="step-12">
-            <div class-row id="orderList">
+            <div class="row" id="orderList">
                 <div class="table">
                     <table class="table table-hover">
                     <!-- <table class="table table-hover table-bordered"> -->
@@ -93,7 +93,7 @@
                         <tbody id="rows">
                             <!-- here goes items list -->
                         </tbody>
-                        <tbody class="extra_rows">
+                        <tbody>
                             <tr>
                                 <td></td>
                                 <td></td>
@@ -207,7 +207,7 @@
                 <hr>
                 <div class="row">
                     <div class="col-md-6">
-                        <label for="email">Email Address</label>
+                        <label for="email1">Email Address</label>
                         <input type="email" class="form-control" id="email1" placeholder="" maxlength="20">
                     </div>
                     <!-- <div class="col-md-6">
@@ -218,7 +218,7 @@
                 <hr>
                 <div class="row">
                     <div class="col-md-6">
-                        <label for="phoneNumber">Phone Number</label>
+                        <label for="phone">Phone Number</label>
                         <input type="text" class="form-control" id="phone" placeholder="5120001452" maxlength="9">
                     </div>
                     <div class="col-md-6">
@@ -488,6 +488,8 @@
                                     </li>
                                     <li>
             <button type="button" class="btn btn-primary next-step">Save and continue</button>
+
+
         </li>
                                 </ul>
 </div>
@@ -625,6 +627,10 @@
                         </div>
                     </div>
                     <!-- end invoice column -->
+                    <hr>
+                    <div class="col-md-6">
+                        <!-- More content here -->
+                    </div>
                 </div>
                 <!-- end row -->
             </section>
