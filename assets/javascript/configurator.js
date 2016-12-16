@@ -5,7 +5,7 @@ var context = { // Define data object
 				"name": "10",
 				"price": 59.99,
 				"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste consectetur veritatis qui est vel, rerum aperiam reprehenderit, tempora quibusdam mollitia.",
-				'image': "http://grilling24x7.com/wp/wp-content/uploads/2015/06/brats.jpg",
+				'image': "http://www.bakeryonmain.com/wp-content/uploads/2014/08/expert-tips-for-grilling.jpg",
 				'features': {
 					grill: 1,
 					tent: 1,
@@ -17,7 +17,7 @@ var context = { // Define data object
 				"name": "20",
 				"price": 119.99,
 				"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste consectetur veritatis qui est vel, rerum aperiam reprehenderit, tempora quibusdam mollitia.",
-				'image': "http://grilling24x7.com/wp/wp-content/uploads/2015/06/brats.jpg",
+				'image': "http://americleaninc.com/wp-content/uploads/grilling-2.gif",
 				'features': {
 					grill: 1,
 					tent: 1,
@@ -29,7 +29,7 @@ var context = { // Define data object
 				"name": "30",
 				"price": 199.99,
 				"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste consectetur veritatis qui est vel, rerum aperiam reprehenderit, tempora quibusdam mollitia.",
-				'image': "http://grilling24x7.com/wp/wp-content/uploads/2015/06/brats.jpg",
+				'image': "http://s.hswstatic.com/gif/grilling-history-1.jpg",
 				'features': {
 					grill: 2,
 					tent: 2,
@@ -41,7 +41,7 @@ var context = { // Define data object
 				"name": "40",
 				"price": 259.99,
 				"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste consectetur veritatis qui est vel, rerum aperiam reprehenderit, tempora quibusdam mollitia.",
-				'image': "http://grilling24x7.com/wp/wp-content/uploads/2015/06/brats.jpg",
+				'image': "http://www.gone-ta-pott.com/000802_c710_0016_csls.jpg",
 				'features': {
 					grill: 2,
 					tent: 2,

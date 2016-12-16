@@ -60,6 +60,8 @@ a:hover {
 
 .thumbnail img {
     width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 /*Packages html*/
@@ -68,7 +70,7 @@ a:hover {
     background: rgba(255,255,255, 0.90);
     border: 0;
     transition: 1s;
-    /*border-radius: 10px;*/
+    border-radius: 10px;
 }
 
 .thumbnail .caption {

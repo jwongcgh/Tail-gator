@@ -28,7 +28,7 @@ $(document).ready(function() {
     //retrieve
     array = JSON.parse(localStorage.getItem("myarray"));
     console.log('Array', array)
-    if (array.length > 0) { 
+    if (array!== null && array.length > 0) { 
         console.log("retrieved array: ", array, array.length);
         console.log(array[0].price);
 
@@ -39,7 +39,7 @@ $(document).ready(function() {
        } 
 
         populate()
-    } //else window.location.href = 'packages.html';
+    } else window.location.href = 'packages.html';
 // ******************************************************************************* //
 // Start *** populates table with cart items *** //
 // ******************************************************************************* //
