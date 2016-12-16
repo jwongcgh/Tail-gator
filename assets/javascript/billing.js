@@ -28,17 +28,17 @@ $(document).ready(function() {
 // Remove or comment out before deploying @@@@@@@@@@@@@@@@@@@@@@@@ //
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ //
 
-    var myarray = [
-        { foodName: 'burger', price: 19.99, quantity: 3 },
-        { foodName: 'hotdog', price: 22.65, quantity: 15 },
-        { foodName: 'shrimp', price: 24.85, quantity: 22 },
-        { foodName: 'package 1', price: 98.99, quantity: 1 },
-        { foodName: 'utensils', price: 12.99, quantity: 25 }
-    ]
+    // var myarray = [
+    //     { foodName: 'burger', price: 19.99, quantity: 3 },
+    //     { foodName: 'hotdog', price: 22.65, quantity: 15 },
+    //     { foodName: 'shrimp', price: 24.85, quantity: 22 },
+    //     { foodName: 'package 1', price: 98.99, quantity: 1 },
+    //     { foodName: 'utensils', price: 12.99, quantity: 25 }
+    // ]
 
-    // store
-    localStorage.clear();
-    localStorage.setItem("myarray", JSON.stringify(myarray));
+    // // store
+    // localStorage.clear();
+    // localStorage.setItem("myarray", JSON.stringify(myarray));
 
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ //
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ //
@@ -238,7 +238,7 @@ $(document).ready(function() {
                 console.log("no change to initial value");
             }
             charges();
-            // return false;
+            return false;
         }); // end update order
 
 // ******************************************************************************* //
@@ -257,15 +257,15 @@ $(document).ready(function() {
     var delivDate = "12/10/1978";
 
     // start local test data
-    var firstName = "Howdy";
-    var lastName = "Hey";
-    var deliverTo;
-    var email = "hellobuddy@gmail.com";
-    var zip = 12345;
-    var city = "happy";
-    var state = "tx";
-    var address = "123 bright av";
-    var phone = 123456789;
+    // var firstName = "Howdy";
+    // var lastName = "Hey";
+    // var deliverTo;
+    // var email = "hellobuddy@gmail.com";
+    // var zip = 12345;
+    // var city = "happy";
+    // var state = "tx";
+    // var address = "123 bright av";
+    // var phone = 123456789;
     // end local test data
 
 $("#shipInfo").on("click", function () {
