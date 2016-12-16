@@ -41,7 +41,7 @@
                         <a href="billing.html">View Cart <span class="glyphicon glyphicon-shopping-cart"></span></a>
                     </li>
                     <li>
-                        <a class='navbar-brand' id='signoutTab' role='button' style='display: none' onclick='signOut()'>Sign Out</a>
+                        <button class='btn btn-default navbar-btn' id='signoutTab' style='display: none' onclick='signOut()'>Sign Out</button>
                     </li>
 					<li>
 						<a href='profile.html' class='signoutTab' style='display: none;'>Profile</a>
@@ -79,34 +79,68 @@
         <div class="row">
 
             <div class="col-md-8 col-md-offset-2 signup">
-				<form>
-					<div class="form-group">
-						<label for="sub_name">Name</label>
-						<input type="text" class="form-control" id="sub_name" placeholder="First and Last">
-					</div>
-					<div class="form-group">
-						<label for="sub_email">Email address</label>
-						<input type="email" class="form-control" id="sub_email" aria-describedby="emailHelp" placeholder="Enter email">
-						<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> 
-					</div>
-					<div class="form-group">
-						<label for="sub_password">Password</label>
-						<input type="password" class="form-control" id="sub_password" placeholder="Password">
-					</div>
-					<div class="form-group">
-						<label for="sub_address">Address</label>
-						<input type="text" class="form-control" id="sub_address" placeholder="Address">
-					</div>
-					<div class="form-group">
-						<label for="sub_city">City, State</label>
-						<input type="text" class="form-control" id="sub_city" placeholder="City and State">
-					</div>
-					<div class="form-group">
-						<label for="sub_zip">Zip Code</label>
-						<input type="number" class="form-control" id="sub_zip" placeholder="Zip Code">
-					</div>
-					<button class="btn btn-primary" type="button" id='sub_signup' onsubmit="return function(e) {console.log('nahhh'); e.preventDefault()}">Submit</button>
-				</form>				
+                <div class='row'>
+                    <div class='col-md-6'>
+				        <div class="input-group">
+				        	<span class="input-group-addon">First Name</span>
+				        	<input type="text" class="form-control" placeholder='Avogadro' id="sub_fname">
+				        </div>
+                    </div>
+                    <div class='col-md-6'>
+                        <div class="input-group">
+				        	<span class="input-group-addon">Last Name</span>
+				        	<input type="text" class="form-control" placeholder='Mole' id="sub_lname">
+				        </div>
+                    </div>
+                </div>
+				<br>
+                <div class='row'>
+                    <div class='col-md-6'>
+                        <div class="input-group">
+				        	<span class="input-group-addon">Email</span>
+				        	<input type="email" class="form-control" placeholder="Ex: A@mail.com" id="sub_email">
+				        </div>
+                    </div>
+                    <div class='col-md-6'>
+                        <div class="input-group">
+				        	<span class="input-group-addon">Phone #</span>
+				        	<input type="text" class="form-control" placeholder="Ex:6.022 x 10^23" id="sub_phone" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+				        </div>
+                    </div>
+                </div>
+				<br>
+                <div class="input-group">
+					<span class="input-group-addon">Password</span>
+						<input type="password" class="form-control" placeholder='Ex: 123456 or ABC123' id="sub_password">
+				</div>
+				<br>
+                <div class="input-group">
+					<span class="input-group-addon">Address</span>
+					<input type="text" class="form-control" placeholder="Address" id="sub_address">
+				</div>
+				<br>
+                <div class='row'>
+                    <div class='col-md-4'>
+                        <div class="input-group">
+				        	<span class="input-group-addon">City</span>
+				        	<input type="text" class="form-control" placeholder='Preferably Houston' id="sub_city">
+				        </div>
+                    </div>
+                    <div class='col-md-4'>
+                        <div class="input-group">
+				        	<span class="input-group-addon">State</span>
+				        	<input type="text" maxlength='2' class="form-control" placeholder="Ex: TX or NY or Sad" id="sub_state">
+				        </div>
+                    </div>
+                    <div class='col-md-4'>
+                        <div class="input-group">
+				        	<span class="input-group-addon">Zip</span>
+				        	<input type="text" class="form-control" placeholder="-pity Do Da" id="sub_zip">
+				        </div>
+                    </div>
+                </div>
+				<br>					
+					<button class="btn btn-primary" type="button" id='sub_signup' onclick="signup()">Submit</button>
             </div>
 
         </div>
@@ -124,6 +158,7 @@
             </div>
         </div>
     </footer>
+	<script src="assets/javascript/jquery.maskedinput.min.js" type="text/javascript"></script>
     <script src="assets/javascript/script.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.js"></script>
