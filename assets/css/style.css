@@ -38,7 +38,7 @@ a:hover {
     right: 0;
 }
 
-.jumbotronTransparent {
+.bgTransparency {
     background: rgba(255,255,255, 0.90);
 }
 
@@ -105,7 +105,7 @@ a:hover {
 }
 
 hr.packageHR {
-    border-top: 2px solid grey;
+    border-top: 2px solid #337ab7;
     margin: 10px 2px;
     /*border-radius: 50%;*/
 }
@@ -119,22 +119,33 @@ hr.packageHR {
     margin-top: -8px;
 }
 
-.configBody {
-    background-color: white;
-}
 
-/*input.form-control {
-    height: 100%;
-}
-*/
-/*.input-group-btn button, input.form-control {
-    
-    line-height: 1;
-    padding: 0 6px;
-    position: default;
-} */
 .carousel-inner > .item > img {
     margin: 0 auto;
     height: 400px;
 }
 
+.configBody {
+    padding: 40px;
+}
+label.radio {
+    margin: 0 20px;
+}
+div.checkbox {
+    margin: 0;
+}
+div.checkbox > label {
+    width: 100%;
+    line-height: 1;
+    /*padding-right: 10px;*/
+}
+
+input.largerCheckbox
+{
+    width: 17px;
+    height: 17px;
+    margin-top: -2px;
+    /*padding: 0;*/
+    /*margin: 0;*/
+    /*padding-right: 10px;*/
+}

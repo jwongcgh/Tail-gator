@@ -142,7 +142,7 @@ $(document).ready(function() {
     function charges() {
         var subtotal = 0.00;
         var totalCharge = 0.00;
-        var shipping = 0.01;
+        var shipping = 10.00;
         var tax = 0.0825;
 
         // adds items prices
