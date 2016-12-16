@@ -299,3 +299,7 @@ body {
 html {
     height: 100%;
 }
+.signin {
+    height: 54px;
+    width: 54px;
+}

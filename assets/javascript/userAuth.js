@@ -9,71 +9,6 @@ var config = {
   firebase.initializeApp(config);
 var database = firebase.database()
 var auth = firebase.auth()
-var signup = function() {
-	var fname = document.getElementById('sub_fname').value.toUpperCase();
-	var lname = document.getElementById('sub_lname').value.toUpperCase();
-	var email = document.getElementById('sub_email').value.toUpperCase();
-	var phone = document.getElementById('sub_phone').value;
-	var zip = document.getElementById('sub_zip').value;
-	var pw = document.getElementById('sub_password').value;
-	var city = document.getElementById('sub_city').value.toUpperCase();
-	var state = document.getElementById('sub_state').value.toUpperCase();
-	var address = document.getElementById('sub_address').value.toUpperCase().match(/\d+\s[A-Za-z]+/);
-    var errors = false;
-    $('.signup input').each(function() {
-        if (!this.value) {
-            $(this).addClass('error');
-            errors = true;
-        }
-        if (this.value && $(this).hasClass('error')) {
-            $(this).removeClass('error');
-        }
-    })
-    if (!address) {
-        $('#sub_address').addClass('error');
-        errors = true;
-    }
-    if (!email.match('@MAIL.COM')) {
-        $('#sub_email').addClass('error');
-        errors = true;
-    }
-    if (pw.length < 6) {
-        $('#sub_password').addClass('error');
-        errors = true;
-    }
-    if (state.length < 2) {
-        $('#sub_state').addClass('error');
-        errors = true;
-    }
-    if (city.length < 4) {
-        $('#sub_city').addClass('error');
-        errors = true;
-    }
-    if (errors) {return}
-	
-    database.ref('users/' + email.replace(/\.\w+/,'')).set({
-        fname: fname,
-		lname: lname,
-		phone: phone,
-        email: email,
-        address_info: {
-			address: address,
-			city: city,
-			state: state,
-			zip: zip
-		}
-    })
-    auth.createUserWithEmailAndPassword(email, pw).catch(function(error) {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-    })
-    var reload = setTimeout(function() {window.location.assign('index.html')}, 1000)
-	
-}
-var signOut = function() {
-    auth.signOut();
-    location.reload();
-}
 
 $(document).ready(function() {
 	
@@ -113,16 +48,69 @@ $(document).ready(function() {
             }
         }
     })
+    var signup = function() {
+        var fname = document.getElementById('sub_fname').value.toUpperCase();
+        var lname = document.getElementById('sub_lname').value.toUpperCase();
+        var email = document.getElementById('sub_email').value.toUpperCase();
+        var phone = document.getElementById('sub_phone').value;
+        var zip = document.getElementById('sub_zip').value;
+        var pw = document.getElementById('sub_password').value;
+        var city = document.getElementById('sub_city').value.toUpperCase();
+        var state = document.getElementById('sub_state').value.toUpperCase();
+        var address = document.getElementById('sub_address').value.toUpperCase().match(/\d+\s[A-Za-z]+/);
+        var errors = false;
+        $('.signup input').each(function() {
+            if (!this.value) {  
+                $(this).addClass('error');
+                errors = true;  
+            } 
+            if (this.value && $(this).hasClass('error')) {   
+                $(this).removeClass('error');  
+            }
+        })
+        if (!address) {
+            $('#sub_address').addClass('error');
+            errors = true;
+        } else {address = address.toString()}
+        if (!email.match('@MAIL.COM')) {
+            $('#sub_email').addClass('error');
+            errors = true;
+        }
+        if (pw.length < 6) {
+            $('#sub_password').addClass('error');
+            errors = true;
+        }
+        if (state.length < 2) {
+            $('#sub_state').addClass('error');
+            errors = true;
+        }
+        if (city.length < 4) {
+            $('#sub_city').addClass('error');
+            errors = true;
+        }
+        if (errors) {return}
+     
+        database.ref('users/' + email.replace(/\.\w+/,'')).set({
+            fname: fname,
+            lname: lname,
+            phone: phone,
+            email: email,
+            address: {
+                street: address,
+                city: city,
+                state: state,
+                zip: zip
+            }
+    })
+    auth.createUserWithEmailAndPassword(email, pw).catch(function(error) {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+    })
+    var reload = setTimeout(function() {window.location.assign('index.html')}, 1000)	
+}
+    $('#signoutTab').on('click', function() {
+        auth.signOut();
+        location.reload();
+        
+    })
 })
-//	var ref = new firebase("https://<YOUR-FIREBASE-APP>.firebaseio.com");
-//    ref.onAuth(function(authData) {
-//		if (authData && isNewUser) {
-//        // save the user's profile into Firebase so we can list users,
-//        // use them in Security and Firebase Rules, and show profiles
-//        ref.child("users").child(authData.uid).set({
-//			provider: authData.provider,
-//			name: getName(authData)
-//			//some more user data
-//		});
-//		}
-//	});
