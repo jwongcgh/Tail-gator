@@ -3,7 +3,7 @@ var context = { // Define data object
 		package: [
 			{	
 				"name": "10",
-				"price": "$59.99",
+				"price": 59.99,
 				"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste consectetur veritatis qui est vel, rerum aperiam reprehenderit, tempora quibusdam mollitia.",
 				'image': "http://grilling24x7.com/wp/wp-content/uploads/2015/06/brats.jpg",
 				'features': {
@@ -15,7 +15,7 @@ var context = { // Define data object
 			},
 			{	
 				"name": "20",
-				"price": "$119.99",
+				"price": 119.99,
 				"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste consectetur veritatis qui est vel, rerum aperiam reprehenderit, tempora quibusdam mollitia.",
 				'image': "http://grilling24x7.com/wp/wp-content/uploads/2015/06/brats.jpg",
 				'features': {
@@ -27,7 +27,7 @@ var context = { // Define data object
 			},
 			{	
 				"name": "30",
-				"price": "$199.99",
+				"price": 199.99,
 				"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste consectetur veritatis qui est vel, rerum aperiam reprehenderit, tempora quibusdam mollitia.",
 				'image': "http://grilling24x7.com/wp/wp-content/uploads/2015/06/brats.jpg",
 				'features': {
@@ -39,7 +39,7 @@ var context = { // Define data object
 			},
 			{	
 				"name": "40",
-				"price": "$259.99",
+				"price": 259.99,
 				"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste consectetur veritatis qui est vel, rerum aperiam reprehenderit, tempora quibusdam mollitia.",
 				'image': "http://grilling24x7.com/wp/wp-content/uploads/2015/06/brats.jpg",
 				'features': {
@@ -63,9 +63,26 @@ var populatePackages = function (context) {
 }
 
 var buttonClicked = function (event) {
+	context.package
 	localStorage.setItem('package', event.currentTarget.getAttribute('data-package'));
 	// console.log(localStorage.getItem('package'));
-	window.location.href = 'configurator.html'
+	var myarray = []
+	var filteredArray = context.package.filter((x) => {
+		if (x.name == "30") return true;
+	});
+	console.log(filteredArray[0]);
+	myarray.push({
+		foodName: `${filteredArray[0].name} person package`,
+		price: filteredArray[0].price,
+		quantity: 1
+	})
+	console.log()
+	localStorage.setItem('myarray', JSON.stringify(myarray));
+
+
+
+	window.location.href = 'configurator.html';
+
 
 } 
 
@@ -77,4 +94,6 @@ Array.from(document.querySelectorAll('div.priceBlock button')).map((x) => {
 // module.exports = {
 // 	packages: context,
 // }
+
+
 });//DOMContentLoaded

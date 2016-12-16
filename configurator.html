@@ -13,7 +13,8 @@
 
     <link href="assets/css/style.css" rel="stylesheet">
     <script src ="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js" type="text/javascript"></script>
-    <!-- <script src="assets/javascript/configurator.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
     <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
     <script>
       // Initialize Firebase
@@ -41,6 +42,31 @@
             window.location.href = 'billing.html';
 
         });
+
+        var object = {  
+                "name": "40",
+                "price": "$259.99",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste consectetur veritatis qui est vel, rerum aperiam reprehenderit, tempora quibusdam mollitia.",
+                'image': "http://grilling24x7.com/wp/wp-content/uploads/2015/06/brats.jpg",
+                'features': {
+                    grill: 2,
+                    tent: 2,
+                    chairs: 24,
+                    tables: 4
+                }
+            }
+ // var myarray = [
+ //        { foodName: 'burger', price: 0.01, quantity: 1 },
+ //        { foodName: 'hotdog', price: 0.01, quantity: 1 },
+ //        { foodName: 'shrimp', price: 0.01, quantity: 1 },
+ //        { foodName: 'package 1', price: 0.01, quantity: 1 },
+ //        { foodName: 'utensils', price: 0.01, quantity: 1 },
+ //    ]
+
+        // console.log(JSON.stringify(myarray))
+        // localStorage.setItem('myarray', JSON.stringify(myarray));
+
+
     });
     </script>
 </head>
@@ -108,32 +134,62 @@
             <div class="col-md-12">
             <div class="jumbotron jumbotronTransparent">
                 <h2 class='h2'> You chose the <span id="package"></span> person package.</h2>
-                <p>Please select any addons and continue to the checkout process</p>
+                <p>Please select any addons and continue to the checkout process.</p>
+            </div>
+        </div>
+        </div>
+        <div class="row  configBody">
+                <div class="col-md-2">
+                    <div class="input-group">
+                      <span class="input-group-btn">
+                        <button class="btn btn-secondary disabled" type="button"><span class="glyphicon glyphicon-minus"></span></button>
+                      </span>
+                      <input type="text" class="form-control disabled" placeholder="Product name" value="0" min="1" max="40">
+                      <span class="input-group-btn">
+                        <button class="btn btn-secondary  disabled" type="button"><span class="glyphicon glyphicon-plus"></span></button>
+                      </span>
+                    </div>
+                </div>
                 <div class="col-md-6">
+                <h2 class="h2">Add-on Items</h2>
+
+
                 <ul class="list-group">
+                    
                     <li class="list-group-item">
-                    Chairs
+                    
+                    <div class="col-md-8">
+                    <div class="input-group">
+      <span class="input-group-addon">
+        <input type="checkbox" aria-label="...">
+      </span>
+      <input type="text" class="form-control" aria-label="...">
+    </div><!-- /input-group -->
+
+                        Chairs
+                    <!-- </div> -->
                     </li>
                     <li class="list-group-item">
-                    Tents
+                        Tents
                     </li>
                     <li class="list-group-item">
-                    Whatevs
+                        Whatevs
                     </li>
                     <li class="list-group-item">
-                    Cooler
+                        Cooler
                     </li>
                     <li class="list-group-item">
-                    Blerg
+                        Blerg
                     </li>
                 </ul>
                 <button id="checkoutButton" class="btn btn-primary pull-right" type="button">Checkout</button>
                 <button id="cancelButton" class="btn btn-default pull-right" type="button">Cancel Order</button>
                 
             </div>
-            </div>
+            <!-- </div> -->
         </div>
-        </div></div>
+        </div>
+    </div>
         
     <!-- /.container -->
 
@@ -147,6 +203,9 @@
             </div>
         </div>
     </footer>
+    <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.js"></script>
+    <script src='assets/javascript/userAuth.js'></script>
    
 </body>
 </html>

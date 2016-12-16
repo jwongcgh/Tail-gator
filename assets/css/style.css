@@ -87,6 +87,7 @@ a:hover {
     padding: 9px;
     color: #333;
 }
+
 .signin {
     height: 54px;
     width: 54px;
@@ -98,6 +99,7 @@ a:hover {
     padding-bottom: 10px;
     border-radius: 10px;
 }
+
 hr.packageHR {
     border-top: 2px solid grey;
     margin: 10px 2px;
@@ -110,4 +112,24 @@ hr.packageHR {
 
 .logoImage {
     height: 170%;
-    margin-top: -8px
+    margin-top: -8px;
+}
+
+.configBody {
+    background-color: white;
+}
+
+input.form-control {
+    height: 100%;
+}
+
+.input-group-btn button, input.form-control {
+    
+    line-height: 1;
+    padding: 0 6px;
+    position: default;
+} 
+.carousel-inner > .item > img {
+    margin: 0 auto;
+    height: 400px;
+}

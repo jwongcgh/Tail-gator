@@ -11,10 +11,9 @@
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 </head>
-</head>
 
 <body>
-    <div class="container">
+    <div id="wrapper" class="container">
         <div class="row">
             <section>
                 <div class="wizard">
@@ -36,10 +35,12 @@
                                 </a>
                             </li>
                             <li role="presentation" class="disabled">
+                            <!-- <li role="presentation" class="disabled"> -->
                                 <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
                                     <span class="round-tab">
                                 <i class="glyphicon glyphicon-picture"></i>
                             </span>
+
                                 </a>
                             </li>
                             <li role="presentation" class="disabled">
@@ -54,10 +55,13 @@
                     <form role="form">
                         <div class="tab-content">
 
-<!-- **************** Page 1 **************** -->
-<!-- **************** Order Confirmation **************** -->
-<!-- **************** Page 1 **************** -->
+<!-- *** Page 1 ************************************************************** -->
+<!-- *** Order Confirmation ************************************************** -->
+<!-- *** Start Page 1 ******************************************************** -->
+
 <div class="tab-pane active" role="tabpanel" id="step1">
+<!-- <div class="tab-pane" role="tabpanel" id="step1"> -->
+
     <div class="step1">
         <div class="step_11">
             <div class="row">
@@ -75,7 +79,7 @@
                                 <th>Item Description</th>
                                 <th id="each">$-Each</th>
                                 <th id="quant">Quantity</th>
-                                <th>Update</th>
+                                <th class="text-center">Update</th>
                                 <th id="total">Total</th>
                             </tr>
                         </thead>
@@ -89,7 +93,7 @@
                                 <td></td>
                                 <td></td>
                                 <td>SubTotal:</td>
-                                <td id="subtotal" class="text-right"></td>
+                                <td class="subtotal text-right"></td>
                             </tr>
                             <tr>
                                 <td></td>
@@ -97,7 +101,7 @@
                                 <td></td>
                                 <td></td>
                                 <td>Shipping:</td>
-                                <td id="shipping" class="text-right"></td>
+                                <td class="shipping text-right"></td>
                             </tr>
                             <tr>
                                 <td></td>
@@ -105,7 +109,7 @@
                                 <td></td>
                                 <td></td>
                                 <td>Tax:</td>
-                                <td id="tax" class="text-right"></td>
+                                <td class="tax text-right"></td>
                             </tr>
                             <tr>
                                 <td></td>
@@ -113,7 +117,7 @@
                                 <td></td>
                                 <td></td>
                                 <td>Total:</td>
-                                <td id="totalCharge" class="text-right"></td>
+                                <td class="totalCharge text-right"></td>
                             </tr>
                         </tbody>
                     </table>
@@ -132,94 +136,18 @@
     </ul>
 </div>
 
-<!-- **************** Page 1 **************** -->
-<!-- **************** Payment Info **************** -->
-<!-- **************** Page 1 **************** -->
+<!-- *** End Page 1 ************************************************************** -->
+<!-- *** Shippin Address & Paypal ************************************************ -->
+<!-- *** Start Page 2 ************************************************************ -->
+
 <div class="tab-pane" role="tabpanel" id="step2">
+<!-- <div class="tab-pane active" role="tabpanel" id="step1"> -->
     <div class="step2">
         <div class="row">
-            <!-- <div class="col-md-6" id="billingAddress">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h4>Billing Address</h4>
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-md-6">
-                        <label for="firstName">First Name</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="lastName">Last Name</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="">
-                    </div>
-                </div>
-                <hr>
-                <hr>
-                <div class="row">
-                    <div class="col-md-6">
-                        <label for="exampleInputEmail1">Address 1</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="exampleInputEmail1">Address 2</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-md-6">
-                        <label for="city">City</label>
-                        <input type="text" class="form-control" id="city" placeholder="">
-                    </div>
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-3 col-xs-3">
-                                <label for="state">State</label>
-                                <input type="text" class="form-control" id="state" placeholder="">
-                            </div>
-                            <div class="col-md-9 col-xs-9">
-                                <label for="zip">Zip/Postal Code</label>
-                                <input type="text" class="form-control" id="zip" placeholder="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-md-6">
-                        <label for="email">Email Address</label>
-                        <input type="email" class="form-control" id="email" placeholder="">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="email">Confirm Email Address</label>
-                        <input type="email" class="form-control" id="email" placeholder="">
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-md-6">
-                        <label for="phoneNumber">Phone Number</label>
-                        <input type="text" class="form-control" id="phoneNumber" placeholder="555-5555555">
-                    </div>
-                </div>
-                <hr>
-                
-                <div class="row">
-                    <label class="col-md-4 control-label" for="shipCheckbox"></label>
-                    <div class="col-md-12">
-                        <div class="input-group">
-                            <span class="input-group-addon">     
-                                                            <input type="checkbox">     
-                                                        </span>
-                            <input id="shipCheckbox" name="shipCheckbox" class="form-control" type="text" value="Ship items to the above billing address">
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-<!-- end billing address -->
-            <div class="col-md-6" id="shippingAddress">
+            
+
+<!-- Shipping Address -->
+            <div class="col-md-8" id="shippingAddress">
                 <div class="row">
                     <div class="col-md-6">
                         <h4>Shipping Address</h4>
@@ -241,11 +169,11 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label for="exampleInputEmail1">Address 1</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                        <input type="text" class="form-control" id="address1" placeholder="">
                     </div>
                     <div class="col-md-6">
                         <label for="exampleInputEmail1">Address 2</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                        <input type="text" class="form-control" id="address2" placeholder="">
                     </div>
                 </div>
                 <hr>
@@ -271,46 +199,150 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label for="email">Email Address</label>
-                        <input type="email" class="form-control" id="email" placeholder="">
+                        <input type="email" class="form-control" id="email1" placeholder="">
                     </div>
                     <div class="col-md-6">
                         <label for="email">Confirm Email Address</label>
-                        <input type="email" class="form-control" id="email" placeholder="">
+                        <input type="email" class="form-control" id="email2" placeholder="">
                     </div>
                 </div>
                 <hr>
                 <div class="row">
                     <div class="col-md-6">
                         <label for="phoneNumber">Phone Number</label>
-                        <input type="text" class="form-control" id="phoneNumber" placeholder="555-5555555">
+                        <input type="text" class="form-control" id="phone" placeholder="555-555-5555">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="date">Delivery Date</label>
+                        <input type="date" class="form-control" id="date" placeholder="555-555-5555">
                     </div>
                 </div>
+
+<!-- Shipping check-box -->
+            <!--     
+                <div class="row">
+                    <label class="col-md-4 control-label" for="shipCheckbox"></label>
+                    <div class="col-md-12">
+                        <div class="input-group">
+                            <span class="input-group-addon">     
+                                                            <input type="checkbox">     
+                                                        </span>
+                            <input id="shipCheckbox" name="shipCheckbox" class="form-control" type="text" value="Ship items to your account address">
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
             </div>
             <!-- end shipping address -->
-        </div>
-        <!-- end main row -->
+
+ <!-- Paypal & order charges summary -->
+<div class="col-md-4" id="pay_info">
+<div class="row">
+<div id="payCont" class="col-md-12">
+<!-- Paypal -->
+<iframe src="paypal.html" width="100%" height="125px" seamless="seamless" >Paypal</iframe>
+</div>
+    <hr>
+<!-- order charges summary -->
+    <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="text-center">
+                        Your order</h4>
+                </div>
+                <div class="panel-body">
+                    <table id="pricing" class="table borderless">
+                        <thead>
+                            <tr>
+                                <th>Subtotal</th>
+                                <th class="subtotal text-right">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- here goes items list from javascript-->
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td>Shipping</td>
+                                <td class="shipping text-right"></td>
+                            </tr>
+                            <tr>
+                                <td>Tax</td>
+                                <td class="tax text-right"></td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>Total</td>
+                                <td class="totalCharge text-right"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>  <!-- end panel-body -->
+            <!-- end panel -->
+            </div>
+    <!-- end order charges summary -->
     </div>
-    <!-- end class step 1 -->
+</div>
+<!-- end Paypal & order charges summary -->
+        </div>
+        
+        </div>
+        <!-- end class step 1 -->
     <hr>
     <ul class="list-inline pull-right">
         <li>
             <button type="button" class="btn btn-default prev-step">Previous</button>
         </li>
         <li>
-            <button type="button" class="btn btn-primary next-step">Save and continue</button>
+            <button id="shipInfo" type="button" class="btn btn-primary next-step">Save and continue</button>
         </li>
     </ul>
 </div>
 <!-- end id step 1 -->
 
+<!-- end page 2 - step 2 -->
+</div>   
 
-<!-- **************** Page 3 **************** -->
-<!-- ****************  **************** -->
-<!-- **************** Page 3 **************** -->
+
+<!-- *** End Page 2 / Step 2 ***************************************************** -->
+<!-- *** Shippin Address & Paypal ************************************************ -->
+<!-- *** Start Page 3 / Step 3 *************************************************** -->
+
+
                             <div class="tab-pane" role="tabpanel" id="step3">
+                            <!-- <div class="tab-pane active" role="tabpanel" id="step3"> -->
                                 <div class="step33">
 <!-- start step 33 -->
-                                    
+
+<!-- date picker -->
+<div class="container">
+    <div class="col-sm-6" style="height:130px;">
+        <div class="form-group">
+            <div class='input-group date' id='datetimepicker8'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="fa fa-calendar">
+                    </span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <!-- <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker8').datetimepicker({
+                icons: {
+                    time: "fa fa-clock-o",
+                    date: "fa fa-calendar",
+                    up: "fa fa-arrow-up",
+                    down: "fa fa-arrow-down"
+                }
+            });
+        });
+    </script> -->
+</div>
+
 <!-- end step 33 -->
                                 </div>
                                 <ul class="list-inline pull-right">
@@ -325,13 +357,22 @@
                                     </li>
                                 </ul>
                             </div>
-                            
-                            <!-- **************** Page 4 **************** -->
-                            <!-- **************** Completed Order **************** -->
-                            <!-- **************** Page 4 **************** -->
+
+<!-- *** End Page 3 / Step 3 ***************************************************** -->
+<!-- *** Completed Order ************************************************ -->
+<!-- *** Start Page 4 / Step 4 *************************************************** -->
+
                             <div class="tab-pane" role="tabpanel" id="complete">
                                 <div class="step44">
-                                    <h5>Completed</h5>
+
+<div class="jumbotron">
+  <h1>Thank You !!!</h1>
+  <h2>We appreciate your business</h2>
+  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+</div>
+
+
+    
                                 </div>
                             </div>
                             <div class="clearfix"></div>
