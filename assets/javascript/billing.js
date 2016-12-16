@@ -28,7 +28,7 @@ $(document).ready(function() {
     //retrieve
     array = JSON.parse(localStorage.getItem("myarray"));
     console.log('Array', array)
-    if (array.length > 0) { 
+    if (array!== null && array.length > 0) { 
         console.log("retrieved array: ", array, array.length);
         console.log(array[0].price);
 
@@ -39,7 +39,7 @@ $(document).ready(function() {
        } 
 
         populate()
-    } //else window.location.href = 'packages.html';
+    } else window.location.href = 'packages.html';
 // ******************************************************************************* //
 // Start *** populates table with cart items *** //
 // ******************************************************************************* //
@@ -61,6 +61,10 @@ $(document).ready(function() {
                     newInput.attr("id", "quant_" + j);
                     // placeholder value is inital chosen item-quantity 
                     newInput.attr("placeholder", array[j].quantity);
+                    if (array[j].price == 0.00) {
+                        newInput.attr('disabled', true);
+                    }
+
                     newData.append(newInput);
                 }
 
@@ -68,7 +72,10 @@ $(document).ready(function() {
                 if (i == 4) {
                     var newButton = $("<button>");
                     newButton.addClass("update_item_Butt");
-                    newButton.addClass("btn btn-primary");
+                    newButton.addClass("btn btn-default");
+                    if (array[j].price == 0.00) {
+                        newButton.addClass('disabled');
+                    }
                     newButton.attr("data-update", j);
                     newButton.text("update");
                     newData.append(newButton);
@@ -135,7 +142,7 @@ $(document).ready(function() {
     function charges() {
         var subtotal = 0.00;
         var totalCharge = 0.00;
-        var shipping = 0.01;
+        var shipping = 10.00;
         var tax = 0.0825;
 
         // adds items prices
@@ -190,7 +197,7 @@ $(document).ready(function() {
                 // checking array has been updated in database
                 array = JSON.parse(localStorage.getItem("myarray"));
                 for (var a=0; a < array.length; a++) {
-                    console.log("value: " + Object.values(array[a]));
+                    console.log("value: ", Object.values(array[a]));
                 } 
                 // end checking array has been updated in database
                 // &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& //
@@ -206,14 +213,13 @@ $(document).ready(function() {
 // Start *** go back to mainpage *** //
 // ******************************************************************************* //
 
-// !!! Not working !!! 
-// !!! Not working !!! 
-// !!! Not working !!! 
+//Now it works :) 
 
     $("#cancel").on("click", function() {
         // empty order array in database
         array = [];
         localStorage.clear();
+        window.location.href = 'index.html';
     }); // end cancel order
 
 

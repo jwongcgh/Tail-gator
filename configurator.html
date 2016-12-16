@@ -38,34 +38,17 @@
             localStorage.clear();
             window.location.href = 'packages.html';
         });
+        
         document.getElementById('checkoutButton').addEventListener('click', () => {
-            window.location.href = 'billing.html';
 
+            window.location.href = 'billing.html';
         });
 
-        var object = {  
-                "name": "40",
-                "price": "$259.99",
-                "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste consectetur veritatis qui est vel, rerum aperiam reprehenderit, tempora quibusdam mollitia.",
-                'image': "http://grilling24x7.com/wp/wp-content/uploads/2015/06/brats.jpg",
-                'features': {
-                    grill: 2,
-                    tent: 2,
-                    chairs: 24,
-                    tables: 4
-                }
-            }
- // var myarray = [
- //        { foodName: 'burger', price: 0.01, quantity: 1 },
- //        { foodName: 'hotdog', price: 0.01, quantity: 1 },
- //        { foodName: 'shrimp', price: 0.01, quantity: 1 },
- //        { foodName: 'package 1', price: 0.01, quantity: 1 },
- //        { foodName: 'utensils', price: 0.01, quantity: 1 },
- //    ]
-
-        // console.log(JSON.stringify(myarray))
-        // localStorage.setItem('myarray', JSON.stringify(myarray));
-
+        Array.from(document.querySelectorAll('input[type="radio"]')).map((x) => {
+             x.addEventListener('click', () => {
+                document.getElementById('checkoutButton').disabled = false;
+            });
+        });
 
     });
     </script>
@@ -132,14 +115,34 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-            <div class="jumbotron jumbotronTransparent">
-                <h2 class='h2'> You chose the <span id="package"></span> person package.</h2>
-                <p>Please select any addons and continue to the checkout process.</p>
+                <div class="jumbotron">
+                    <h2 class='h2'> You chose the <span id="package"></span> person package.</h2>
+                    <p>Please select your entree and any addons to the checkout process.</p>
+                </div>
             </div>
         </div>
-        </div>
-        <div class="row  configBody">
-                <div class="col-md-2">
+        <div class="bgTransparency configBody">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 class='h2'>Choose your entree</h2>
+                    <div class="entreeDiv">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <label class="radio"><input type="radio" name="optradio">Burgers</label>
+                        </li>
+                        <li class="list-group-item">
+                            <label class="radio"><input type="radio" name="optradio">Hotdogs</label>
+                        </li>
+                        <li class="list-group-item">
+                            <label class="radio"><input type="radio" name="optradio">Seafood</label>
+                        </li>
+                        <li class="list-group-item">
+                            <label class="radio"><input type="radio" name="optradio">Mix</label>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+                <!-- <div class="col-md-2">
                     <div class="input-group">
                       <span class="input-group-btn">
                         <button class="btn btn-secondary disabled" type="button"><span class="glyphicon glyphicon-minus"></span></button>
@@ -149,7 +152,9 @@
                         <button class="btn btn-secondary  disabled" type="button"><span class="glyphicon glyphicon-plus"></span></button>
                       </span>
                     </div>
-                </div>
+                </div> -->
+            <!-- </div> -->
+            <!-- <div class="row"> -->
                 <div class="col-md-6">
                 <h2 class="h2">Add-on Items</h2>
 
@@ -158,19 +163,24 @@
                     
                     <li class="list-group-item">
                     
-                    <div class="col-md-8">
-                    <div class="input-group">
-      <span class="input-group-addon">
-        <input type="checkbox" aria-label="...">
-      </span>
-      <input type="text" class="form-control" aria-label="...">
-    </div><!-- /input-group -->
-
+                   <!--  <div class="input-group">
+                      <span class="input-group-addon">
+                        <input type="checkbox" aria-label="...">
+                      </span>
+                      <input type="text" class="form-control" aria-label="...">
+                    </div> -->
                         Chairs
                     <!-- </div> -->
                     </li>
                     <li class="list-group-item">
-                        Tents
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox" class="largerCheckbox" value="">
+                            Tents
+                            <span class="pull-right">Price: 19.99</span>
+                          </label>
+
+                        </div>
                     </li>
                     <li class="list-group-item">
                         Whatevs
@@ -182,11 +192,10 @@
                         Blerg
                     </li>
                 </ul>
-                <button id="checkoutButton" class="btn btn-primary pull-right" type="button">Checkout</button>
+                <button id="checkoutButton" class="btn btn-primary pull-right" type="button" disabled>Checkout</button>
                 <button id="cancelButton" class="btn btn-default pull-right" type="button">Cancel Order</button>
                 
             </div>
-            <!-- </div> -->
         </div>
         </div>
     </div>

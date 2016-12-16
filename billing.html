@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <!-- modified from a bootsnip template -->
-    <title>Billing</title>
+    <title>Billing - Tailgator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/billing.css">
@@ -13,6 +13,61 @@
 </head>
 
 <body>
+ <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container ">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><img class="img-responsive logoImage" src="assets/images/logob.png"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <a href="packages.html">Packages</a>
+                    </li>
+                </ul>
+                <ul class='nav navbar-nav navbar-right'>
+                    <li>
+
+                        <a href="billing.html">View Cart <span class="glyphicon glyphicon-shopping-cart"></span></a>
+                    </li>
+            
+                    <li>
+                        <a class='navbar-brand' id='signoutTab' role='button' style='display: none' onclick='signOut()'>Sign Out</a>
+                    </li>
+                    <li class="dropdown signinTab">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign In <span class="caret"></span></a>
+                        <ul class="dropdown-menu" style='padding:10px;'>
+                            <li>Sign in with:</li>
+                            <li>
+                                <img class='signin' id='googleP' src="assets/images/7-128.png">
+                                <img class='signin' id='facebook' src="assets/images/facebook-128.png">
+                                <img class='signin' src="assets/images/Twitter-icon.png">
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li><input type='text' id='loginEmail' placeholder='Email'></li>
+                            <li><input type='password' id='loginPW' placeholder='Password'></li>
+                            <li role="separator" class="divider"></li>
+                            <li><input type='submit' value='Submit' id='submit'></li>
+                            
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="signup.html">Sign Up</a>
+                    </li>
+                    <!-- End sign in block -->
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
     <div id="wrapper" class="container">
         <div class="row">
             <section>
@@ -77,7 +132,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Item Description</th>
-                                <th id="each">$-Each</th>
+                                <th id="each">Price per item</th>
                                 <th id="quant">Quantity</th>
                                 <th class="text-center">Update</th>
                                 <th id="total">Total</th>
@@ -92,7 +147,7 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td>SubTotal:</td>
+                                <td>Subtotal:</td>
                                 <td class="subtotal text-right"></td>
                             </tr>
                             <tr>
@@ -100,7 +155,7 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td>Shipping:</td>
+                                <td>Delivery Fee:</td>
                                 <td class="shipping text-right"></td>
                             </tr>
                             <tr>
@@ -128,7 +183,7 @@
     </div>
     <ul class="list-inline pull-right">
         <li>
-            <button type="button" class="btn btn-success prev-step"><a href="index.html">Cancel Order</a></button>
+            <button type="button" id="cancel" class="btn btn-success prev-step">Cancel Order</button>
         </li>
         <li>
             <button type="button" class="btn btn-primary next-step">Save and continue</button>
@@ -239,10 +294,7 @@
  <!-- Paypal & order charges summary -->
 <div class="col-md-4" id="pay_info">
 <div class="row">
-<div id="payCont" class="col-md-12">
-<!-- Paypal -->
-<iframe src="paypal.html" width="100%" height="125px" seamless="seamless" >Paypal</iframe>
-</div>
+
     <hr>
 <!-- order charges summary -->
     <div class="col-md-12">
@@ -281,6 +333,10 @@
                     </table>
                 </div>  <!-- end panel-body -->
             <!-- end panel -->
+            </div>
+            <div id="payCont" class="col-md-12">
+            <!-- Paypal -->
+            <iframe src="paypal.html" width="100%" height="125px" seamless="seamless" >Paypal</iframe>
             </div>
     <!-- end order charges summary -->
     </div>
@@ -382,6 +438,15 @@
             </section>
         </div>
     </div>
+     <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="text-center">Copyright &copy; Tail-gator 2016. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
     <!-- <script type="text/javascript" src="bootsnipp.js"></script> -->
     <!-- <script type="text/javascript" src="orderlist.js"></script> -->
     <script src="assets/javascript/jquery.maskedinput.min.js" type="text/javascript"></script>

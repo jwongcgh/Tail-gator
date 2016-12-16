@@ -4,7 +4,7 @@ html {
 }
 
 body {
-    padding-top: 90px;
+    padding-top: 50px;
     background-color: grey;
     background-image: url('../images/background1.jpg');
     background-repeat: no-repeat;
@@ -21,7 +21,8 @@ a:hover {
 }
 
 .navbar-inverse {
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0,0,0,0.9);
+    border-bottom: solid 2px rgba(255,255,255,0.7);
 }
 
 .footer {
@@ -37,7 +38,7 @@ a:hover {
     right: 0;
 }
 
-.jumbotronTransparent {
+.bgTransparency {
     background: rgba(255,255,255, 0.90);
 }
 
@@ -60,6 +61,8 @@ a:hover {
 
 .thumbnail img {
     width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 /*Packages html*/
@@ -68,7 +71,7 @@ a:hover {
     background: rgba(255,255,255, 0.90);
     border: 0;
     transition: 1s;
-    /*border-radius: 10px;*/
+    border-radius: 10px;
 }
 
 .thumbnail .caption {
@@ -94,13 +97,17 @@ a:hover {
 }
 .signup {
     border: 2px solid black;
+    background-color: rgba(255,255,255,1);
+    padding-top: 10px;
+    margin-top: 60px;
+    padding-bottom: 10px;
     background-color: white;
     padding: 25px 25px;
     border-radius: 10px;
 }
 
 hr.packageHR {
-    border-top: 2px solid grey;
+    border-top: 2px solid #337ab7;
     margin: 10px 2px;
     /*border-radius: 50%;*/
 }
@@ -114,14 +121,37 @@ hr.packageHR {
     margin-top: -8px;
 }
 
-.configBody {
-    background-color: white;
-}
 
 .carousel-inner > .item > img {
     margin: 0 auto;
     height: 400px;
 }
+
+.configBody {
+    padding: 40px;
+}
+label.radio {
+    margin: 0 20px;
+}
+div.checkbox {
+    margin: 0;
+}
+div.checkbox > label {
+    width: 100%;
+    line-height: 1;
+    /*padding-right: 10px;*/
+}
+
+input.largerCheckbox
+{
+    width: 17px;
+    height: 17px;
+    margin-top: -2px;
+    /*padding: 0;*/
+    /*margin: 0;*/
+    /*padding-right: 10px;*/
+}
+
 input.error {
 	border-color: red;
 }
