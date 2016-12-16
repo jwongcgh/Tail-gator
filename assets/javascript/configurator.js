@@ -5,7 +5,7 @@ var context = { // Define data object
 				"name": "10",
 				"price": 59.99,
 				"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste consectetur veritatis qui est vel, rerum aperiam reprehenderit, tempora quibusdam mollitia.",
-				'image': "http://www.bakeryonmain.com/wp-content/uploads/2014/08/expert-tips-for-grilling.jpg",
+				'image': "assets/images/package-10.jpg",
 				'features': {
 					grill: 1,
 					tent: 1,
@@ -17,7 +17,7 @@ var context = { // Define data object
 				"name": "20",
 				"price": 119.99,
 				"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste consectetur veritatis qui est vel, rerum aperiam reprehenderit, tempora quibusdam mollitia.",
-				'image': "http://americleaninc.com/wp-content/uploads/grilling-2.gif",
+				'image': "assets/images/package-20.gif",
 				'features': {
 					grill: 1,
 					tent: 1,
@@ -29,7 +29,7 @@ var context = { // Define data object
 				"name": "30",
 				"price": 199.99,
 				"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste consectetur veritatis qui est vel, rerum aperiam reprehenderit, tempora quibusdam mollitia.",
-				'image': "http://s.hswstatic.com/gif/grilling-history-1.jpg",
+				'image': "assets/images/package-30.jpg",
 				'features': {
 					grill: 2,
 					tent: 2,
@@ -41,7 +41,7 @@ var context = { // Define data object
 				"name": "40",
 				"price": 259.99,
 				"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste consectetur veritatis qui est vel, rerum aperiam reprehenderit, tempora quibusdam mollitia.",
-				'image': "http://www.gone-ta-pott.com/000802_c710_0016_csls.jpg",
+				'image': "assets/images/package-40.jpg",
 				'features': {
 					grill: 2,
 					tent: 2,
@@ -51,6 +51,8 @@ var context = { // Define data object
 			},
 		]
 }
+
+var myarray = [];
 
 var populatePackages = function (context) {
 		var templateScript = document.getElementById('foodTemplate').innerHTML;
@@ -62,21 +64,37 @@ var populatePackages = function (context) {
 		document.querySelector('.content-placeholder').innerHTML = compiledHTML;
 }
 
-var buttonClicked = function (event) {
-	context.package
-	localStorage.setItem('package', event.currentTarget.getAttribute('data-package'));
-	// console.log(localStorage.getItem('package'));
-	var myarray = []
-	var filteredArray = context.package.filter((x) => {
-		if (x.name == "30") return true;
-	});
-	console.log(filteredArray[0]);
+var addItem = function (name, price, quantity) {
 	myarray.push({
-		foodName: `${filteredArray[0].name} person package`,
-		price: filteredArray[0].price,
-		quantity: 1
-	})
-	console.log()
+		foodName: name,
+		price: price,
+		quantity: quantity
+	});
+}
+
+var buttonClicked = function (event) {
+	// context.package
+	var packageSelected = event.currentTarget.getAttribute('data-package');
+	localStorage.setItem('package', packageSelected);
+	// console.log(localStorage.getItem('package'));
+	
+	var filteredArray = context.package.filter((x) => {
+		if (x.name == packageSelected) return true;
+	});
+	var thisPackage = filteredArray[0];
+	//Add package name
+	addItem(`${thisPackage.name} person package`, thisPackage.price, 1
+	);
+	var package = Object.getOwnPropertyNames(thisPackage.features);
+	console.log(package)
+	package.map((x) => {
+		addItem(x, 0.00, thisPackage.features[x]);
+	});
+	console.log(myarray[0])
+	// for (i=0; i < Object.keys(thisPackage.features).length; i++) {
+	// 	addItem()
+	// }
+
 	localStorage.setItem('myarray', JSON.stringify(myarray));
 
 
