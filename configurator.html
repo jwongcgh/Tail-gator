@@ -28,9 +28,6 @@
     </script>
     <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', () => {
-
-
-
         // var packages = require('configurator').packages;
         if (localStorage.getItem('package')) {
             document.getElementById('package').innerHTML = localStorage.getItem('package');
@@ -53,25 +50,24 @@
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div></div>
-            <div class="navbar-header">
+           <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Tail-gator</a>
+                <a class="navbar-brand" href="index.html"><img class="img-responsive logoImage" src="assets/images/logob.png"></a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-left">
-                    <li>
+                                       <li>
                         <a href="packages.html">Packages</a>
                     </li>
                 </ul>
                 <ul class='nav navbar-nav navbar-right'>
                     <li>
-                        <a  href="configurator.html">View Cart <span class="glyphicon glyphicon-shopping-cart"></span></a>
+                        <a  href="configurator.html">View Cart  <span class="glyphicon glyphicon-shopping-cart"></span></a>
                     </li>
                 </ul>
             </div>
@@ -86,37 +82,63 @@
             <div class="col-md-12">
             <div class="jumbotron jumbotronTransparent">
                 <h2 class='h2'> You chose the <span id="package"></span> person package.</h2>
-                <p>Please select any addons and continue to the checkout process</p>
-                <a href="billing.html">Checkout</a>
+                <p>Please select any addons and continue to the checkout process.</p>
+            </div>
+        </div>
+        </div>
+        <div class="row  configBody">
+                <div class="col-md-2">
+                    <div class="input-group">
+                      <span class="input-group-btn">
+                        <button class="btn btn-secondary disabled" type="button"><span class="glyphicon glyphicon-minus"></span></button>
+                      </span>
+                      <input type="text" class="form-control disabled" placeholder="Product name" value="0" min="1" max="40">
+                      <span class="input-group-btn">
+                        <button class="btn btn-secondary  disabled" type="button"><span class="glyphicon glyphicon-plus"></span></button>
+                      </span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                <h2 class="h2">Add-on Items</h2>
+
+
                 <ul class="list-group">
+                    
                     <li class="list-group-item">
-                    Tents
+                    
+                    <div class="col-md-8">
+                    <div class="input-group">
+      <span class="input-group-addon">
+        <input type="checkbox" aria-label="...">
+      </span>
+      <input type="text" class="form-control" aria-label="...">
+    </div><!-- /input-group -->
+
+                        Chairs
+                    <!-- </div> -->
                     </li>
                     <li class="list-group-item">
-                    Tents
+                        Tents
                     </li>
                     <li class="list-group-item">
-                    Tents
+                        Whatevs
                     </li>
                     <li class="list-group-item">
-                    Tents
+                        Cooler
                     </li>
                     <li class="list-group-item">
-                    Tents
+                        Blerg
                     </li>
                 </ul>
                 <button id="checkoutButton" class="btn btn-primary pull-right" type="button">Checkout</button>
                 <button id="cancelButton" class="btn btn-default pull-right" type="button">Cancel Order</button>
                 
             </div>
-            </div>
+            <!-- </div> -->
         </div>
-        <div class="col-md-12">
-            <div class="row">
-                <div class="content-placeholder"></div>
-            </div>
         </div>
     </div>
+        
     <!-- /.container -->
 
     <!-- Footer -->
