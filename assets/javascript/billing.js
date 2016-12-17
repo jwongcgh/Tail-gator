@@ -87,6 +87,9 @@ $(document).ready(function() {
                 if (i == 3) {
                     var newInput = $("<input type='text' size='4'>");
                     newInput.addClass("quantity");
+                    if (array[j].price == 0) {
+                        newInput.attr('disabled', true);
+                    }
                     // assign id to item-update input field
                     newInput.attr("id", "quant_" + j);
                     // placeholder value is inital chosen item-quantity 
@@ -97,6 +100,9 @@ $(document).ready(function() {
                 // adds button to update items quantity
                 if (i == 4) {
                     var newButton = $("<button>");
+                    if (array[j].price == 0) {
+                        newButton.addClass('disabled');
+                    }
                     newButton.addClass("update_item_Butt");
                     newButton.addClass("btn btn-primary");
                     newButton.attr("data-update", j);
@@ -115,7 +121,9 @@ $(document).ready(function() {
 
             RowTds.eq(0).text(j + 1);
             RowTds.eq(1).text(array[j].foodName); // item id value: e.g. burger
+            if (array[j].price > 0) {
             RowTds.eq(2).text(array[j].price); // item each
+            }
             RowTds.eq(3).html(); // item quantity: array[j].quantity
             RowTds.eq(4).html(); // update list item button: "button here"
             RowTds.eq(5).text((array[j].price * array[j].quantity).toFixed(2));
