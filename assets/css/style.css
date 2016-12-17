@@ -24,6 +24,7 @@ a:hover {
     background-color: rgba(0,0,0,0.8);
 }
 
+
 .footer {
     width: 100%;
     background: rgba(0,0,0,0.8);
@@ -60,6 +61,10 @@ a:hover {
 
 .thumbnail img {
     width: 100%;
+}
+
+#events {
+    overflow: auto;
 }
 
 /*Packages html*/
