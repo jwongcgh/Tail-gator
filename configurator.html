@@ -118,7 +118,8 @@
             </div>
         </div>
         <div class="bgTransparency configBody">
-            <h2 class='h3'>The <span id="yourPackage"></span> person package includes</h2>
+            <h2 class='h3'>The <span id="yourPackage"></span> person package</h2>
+            <p>This package includes the following items:</p>
             <div class="row">
                 <div class="col-md-6">
                     <ul class="list-group" id='itemsUL'></ul>
@@ -127,9 +128,20 @@
                     <img class="img-responsive img-thumbnail" src="assets/images/car1.png">
                 </div>
             </div>
+            <br>
             <div class='row'>
+                <div class="col-md-6"><h2 class="h4">Add-on Items</h2>
+                <p>You can adjust quantity on the checkout screen.</p>
+
+                   <ul class="list-group" id="addOnItems">
+                 
+                </ul>
+                    
+                    </div>
+               
                 <div class="col-md-6">
-                    <h2 class='h4'>Choose your entree (required)*</h2>
+                <h2 class='h4'>Choose your entree</h2>
+                <p>You must select one option.</p>
                     <div class="entreeDiv">
                     <ul class="list-group">
                         <li class="list-group-item">
@@ -145,60 +157,11 @@
                             <label class="radio"><input type="radio" name="optradio" data-entree="Mixed food portions">Mix (a third of each)</label>
                         </li>
                     </ul>
-                    </div>
-                </div>
-                <!-- <div class="col-md-2">
-                    <div class="input-group">
-                      <span class="input-group-btn">
-                        <button class="btn btn-secondary disabled" type="button"><span class="glyphicon glyphicon-minus"></span></button>
-                      </span>
-                      <input type="text" class="form-control disabled" placeholder="Product name" value="0" min="1" max="40">
-                      <span class="input-group-btn">
-                        <button class="btn btn-secondary  disabled" type="button"><span class="glyphicon glyphicon-plus"></span></button>
-                      </span>
-                    </div>
-                </div> -->
-            <!-- </div> -->
-            <!-- <div class="row"> -->
-                <div class="col-md-6">
-                <h2 class="h4">Add-on Items</h2>
-
-
-                <ul class="list-group" id="addOnItems">
-                    
-                   <!--  <li class="list-group-item">
-                    
-                    <div class="input-group">
-                      <span class="input-group-addon">
-                        <input type="checkbox" aria-label="...">
-                      </span>
-                      <input type="text" class="form-control" aria-label="...">
-                    </div>
-                        Chairs
-                    </li>
-                    <li class="list-group-item">
-                        <div class="checkbox">
-                          <label>
-                            <input type="checkbox" class="largerCheckbox" value="">
-                            Tents
-                            <span class="pull-right">Price: 19.99</span>
-                          </label>
-
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        Whatevs
-                    </li>
-                    <li class="list-group-item">
-                        Cooler
-                    </li>
-                    <li class="list-group-item">
-                        Blerg
-                    </li> -->
-                </ul>
+                
                 <button id="checkoutButton" class="btn btn-primary pull-right" type="button" disabled>Checkout</button>
                 <button id="cancelButton" class="btn btn-default pull-right" type="button">Cancel Order</button>
-                
+                                </div>
+
             </div>
         </div>
         </div>
