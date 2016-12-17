@@ -285,7 +285,8 @@ $("#shipInfo").on("click", function () {
     
 
 // database store shipping info
-        database.ref('/users/' + "shipping").set({
+        // database.ref('/users/' + "shipping").set({
+        database.ref('/users/').push({
         firstName: firstName,
         lastName: lastName,
         address: address,
