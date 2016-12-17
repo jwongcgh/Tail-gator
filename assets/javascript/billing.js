@@ -404,16 +404,13 @@ $(document).on('change', '#checkbox', function() {
 // Start *** cancel & go back to mainpage *** //
 // ******************************************************************************* //
 
-// !!! Not working !!! 
-// !!! Not working !!! 
-// !!! Not working !!! 
+
 
     $("#cancel").on("click", function() {
         // empty order array in database
         localStorage.clear();
         array = [];
 
-        // window.location.href = "index.html";
     }); // end cancel order
 
 
