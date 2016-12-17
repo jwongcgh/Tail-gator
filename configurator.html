@@ -10,11 +10,10 @@
     <title>Configurator - Tail-gator</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
     <link href="assets/css/style.css" rel="stylesheet">
     <script src ="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js" type="text/javascript"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
     <script>
       // Initialize Firebase
@@ -27,30 +26,27 @@
       };
       firebase.initializeApp(config);
     </script>
-    <script type="text/javascript">
-    document.addEventListener('DOMContentLoaded', () => {
-        // var packages = require('configurator').packages;
-        if (localStorage.getItem('package')) {
-            document.getElementById('package').innerHTML = localStorage.getItem('package');
-        } else window.location.href = 'packages.html';
+    <script src="assets/javascript/configurator.js"></script>
+    <script id="addOnTemplate" type="text/x-handlebars-template">
+        {{#each addOns}}
+        <li class="list-group-item">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" class="largerCheckbox" value="" data-price="{{price}}" data-quantity = "{{quantity}}" data-name='{{name}}'>
+                {{quantity}} {{name}}
+                <span class="pull-right">Price: {{price}}</span>
+              </label>
+            </div>
+        </li>
+        {{/each}}
+    </script>
+    <script id="packageItemTemplate" type="text/x-handlebars-template">
+    {{#each items}}
+        <li class="list-group-item">
+        {{quantity}} {{foodName}}
+        </li>
+    {{/each}}
 
-        document.getElementById('cancelButton').addEventListener('click', () => {
-            localStorage.clear();
-            window.location.href = 'packages.html';
-        });
-        
-        document.getElementById('checkoutButton').addEventListener('click', () => {
-
-            window.location.href = 'billing.html';
-        });
-
-        Array.from(document.querySelectorAll('input[type="radio"]')).map((x) => {
-             x.addEventListener('click', () => {
-                document.getElementById('checkoutButton').disabled = false;
-            });
-        });
-
-    });
     </script>
 </head>
 
@@ -122,22 +118,31 @@
             </div>
         </div>
         <div class="bgTransparency configBody">
+            <h2 class='h3'>The <span id="yourPackage"></span> person package includes</h2>
             <div class="row">
                 <div class="col-md-6">
-                    <h2 class='h2'>Choose your entree</h2>
+                    <ul class="list-group" id='itemsUL'></ul>
+                </div>
+                <div class="col-md-6">
+                    <img class="img-responsive img-thumbnail" src="assets/images/car1.png">
+                </div>
+            </div>
+            <div class='row'>
+                <div class="col-md-6">
+                    <h2 class='h4'>Choose your entree (required)*</h2>
                     <div class="entreeDiv">
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <label class="radio"><input type="radio" name="optradio">Burgers</label>
+                            <label class="radio"><input type="radio" name="optradio" data-entree="Burgers">Burgers</label>
                         </li>
                         <li class="list-group-item">
-                            <label class="radio"><input type="radio" name="optradio">Hotdogs</label>
+                            <label class="radio"><input type="radio" name="optradio" data-entree="Hotdogs">Hotdogs</label>
                         </li>
                         <li class="list-group-item">
-                            <label class="radio"><input type="radio" name="optradio">Seafood</label>
+                            <label class="radio"><input type="radio" name="optradio" data-entree="Seafood portions">Seafood portions</label>
                         </li>
                         <li class="list-group-item">
-                            <label class="radio"><input type="radio" name="optradio">Mix</label>
+                            <label class="radio"><input type="radio" name="optradio" data-entree="Mixed food portions">Mix (a third of each)</label>
                         </li>
                     </ul>
                     </div>
@@ -156,21 +161,20 @@
             <!-- </div> -->
             <!-- <div class="row"> -->
                 <div class="col-md-6">
-                <h2 class="h2">Add-on Items</h2>
+                <h2 class="h4">Add-on Items</h2>
 
 
-                <ul class="list-group">
+                <ul class="list-group" id="addOnItems">
                     
-                    <li class="list-group-item">
+                   <!--  <li class="list-group-item">
                     
-                   <!--  <div class="input-group">
+                    <div class="input-group">
                       <span class="input-group-addon">
                         <input type="checkbox" aria-label="...">
                       </span>
                       <input type="text" class="form-control" aria-label="...">
-                    </div> -->
+                    </div>
                         Chairs
-                    <!-- </div> -->
                     </li>
                     <li class="list-group-item">
                         <div class="checkbox">
@@ -190,7 +194,7 @@
                     </li>
                     <li class="list-group-item">
                         Blerg
-                    </li>
+                    </li> -->
                 </ul>
                 <button id="checkoutButton" class="btn btn-primary pull-right" type="button" disabled>Checkout</button>
                 <button id="cancelButton" class="btn btn-default pull-right" type="button">Cancel Order</button>
@@ -212,6 +216,7 @@
             </div>
         </div>
     </footer>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.js"></script>
     <script src='assets/javascript/userAuth.js'></script>
