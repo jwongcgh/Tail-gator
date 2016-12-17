@@ -155,3 +155,7 @@ input.largerCheckbox
 input.error {
     border-color: red;
 }
+
+ div.entreeDiv button{
+    margin-left: 10px;
+ }

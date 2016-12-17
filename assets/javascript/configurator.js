@@ -22,7 +22,7 @@
                 foodName: entreeSelection,
                 price: 0.00,
                 quantity: localStorage.getItem('package'),
-            })
+            });
             localStorage.setItem('myarray', JSON.stringify(myarray));
             window.location.href = 'billing.html';
         });
