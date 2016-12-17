@@ -124,7 +124,8 @@ hr.packageHR {
 
 .carousel-inner > .item > img {
     margin: 0 auto;
-    height: 400px;
+    height: auto;
+    width: auto;
 }
 
 .configBody {
