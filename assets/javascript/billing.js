@@ -308,6 +308,26 @@ $("#shipInfo").on("click", function () {
 
     // delivDate = $("#date").val();
 
+
+
+    
+
+// database store shipping info
+        // database.ref('/users/' + "shipping").set({
+        database.ref('/users/').push({
+        firstName: firstName,
+        lastName: lastName,
+        address: address,
+        city: city,
+        state: state,
+        zip: zip,
+        email: email,
+        phone: phone,
+        // delivDate : delivDate,
+    });
+
+
+
 	    emptyfield = firstName.length * lastName.length * address.length * city.length * state.length *
                         zip.length * phone.length;
         console.log("emotyfield: " + emptyfield);
