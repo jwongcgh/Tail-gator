@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-
 // ******************************************************************************* //
 // Start *** firebase user data *** //
 // ******************************************************************************* //
@@ -47,31 +46,39 @@ $(document).ready(function() {
 
     //retrieve
     array = JSON.parse(localStorage.getItem("myarray"));
-    console.log('Array', array)
-    if (array!== null && array.length > 0) { 
-        console.log("retrieved array: ", array, array.length);
-        console.log(array[0].price);
+
+    // display object values
+    // &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& //
+                for (var a=0; a < array.length; a++) {
+            console.log("value initial: " + Object.values(array[a]));
+   } 
+    // &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& //
 
 
-        // display object values
-       for (var a=0; a < array.length; a++) {
-                console.log("value: " + Object.values(array[a]));
-       } 
-        populate()
-    } else window.location.href = 'packages.html';
+    populate();
+
 // ******************************************************************************* //
 // Start *** populates table with cart items *** //
 // ******************************************************************************* //
 
     function populate() {
+
         for (var j = 0; j < array.length; j++) {
+
             // adds new row in table when needed
             var newRow = $("<tr>");
+
             // append the necessary number of columns in table
             for (var i = 0; i < table_columns; i++) {
                 var newData = $("<td>");
-                if (i == 2 || i == 3 || i==4) {newData.addClass("text-center"); }   // formatting columns
-                if (i == array.length) {newData.addClass("text-right");}     // formatting columns
+
+                if (i == 2 || i == 3 || i==4) {
+                    newData.addClass("text-center");    // formatting columns
+                }
+                if (i == array.length) {
+                    newData.addClass("text-right");     // formatting columns
+                }
+
                 // adds input field inside table cell
                 if (i == 3) {
                     var newInput = $("<input type='text' size='4'>");
@@ -80,10 +87,6 @@ $(document).ready(function() {
                     newInput.attr("id", "quant_" + j);
                     // placeholder value is inital chosen item-quantity 
                     newInput.attr("placeholder", array[j].quantity);
-                    if (array[j].price == 0.00) {
-                        newInput.attr('disabled', true);
-                    }
-
                     newData.append(newInput);
                 }
 
@@ -91,14 +94,12 @@ $(document).ready(function() {
                 if (i == 4) {
                     var newButton = $("<button>");
                     newButton.addClass("update_item_Butt");
-                    newButton.addClass("btn btn-default");
-                    if (array[j].price == 0.00) {
-                        newButton.addClass('disabled');
-                    }
+                    newButton.addClass("btn btn-primary");
                     newButton.attr("data-update", j);
                     newButton.text("update");
                     newData.append(newButton);
                 }
+
                 newRow.append(newData);
             } // end for-loop appending columns to each row
 
@@ -116,28 +117,32 @@ $(document).ready(function() {
             RowTds.eq(5).text((array[j].price * array[j].quantity).toFixed(2));
 
         } // end for-loop populating Order Details cart
-        charges();
+
+        charges();  //
     } // end populate function
 
 
     function invoice_pop() {
 
-
             $(".rows_invoice").html("");
 // Start *** populate page 3 - invoice *** //
 
-       for (var k = 0; k < array.length; k++) {
+               for (var k = 0; k < array.length; k++) {
+
             // adds new row in table when needed
             var newRow = $("<tr>");
+
             // append the necessary number of columns in table
             for (var i = 0; i < table_columns - 1 ; i++) {
                 var newData = $("<td>");
+
                 if (i == 2 || i == 3) {
                     newData.addClass("text-center");    // formatting columns
                 }
                 if (i >= array.length - 1) {
                     newData.addClass("text-right");     // formatting columns
                 }
+
                 newRow.append(newData);
             } // end for-loop appending columns to each row
 
@@ -164,8 +169,7 @@ $(document).ready(function() {
     function charges() {
         var subtotal = 0.00;
         var totalCharge = 0.00;
-        var shipping = 10.00;
-
+        var shipping = 59.99;
         var tax = 0.0825;
 
         // adds items prices
@@ -234,25 +238,28 @@ $(document).ready(function() {
     // update cart item quantity and subtotal
     $(".update_item_Butt").on("click", function() {
             var newQuant = $(this).data("update");  // button id retrieved once pressed
+
             // retrieving new item quantity value
             var inputVal = $("#quant_" + newQuant).val();
             if (inputVal !== "") {
                 // updates locally quantity updated in array
+
             // database cart update
                 array[$(this).data("update")].quantity = inputVal;
                 myarray = array;
                 localStorage.setItem("myarray", JSON.stringify(myarray));
+
                 // &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& //
                 // checking array has been updated in database
 
                 array = JSON.parse(localStorage.getItem("myarray"));
                 for (var a=0; a < array.length; a++) {
-                    console.log("value: ", Object.values(array[a]));
-
+                    console.log("value after: " + Object.values(array[a]));
                 } 
 
                 // end checking array has been updated in database
                 // &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& //
+
                 $('table').children().eq(1).children('tr').eq($(this).data("update")).children('td').eq(5).html((array[$(this).data("update")].price * inputVal).toFixed(2));
             } else {
                 console.log("no change to initial value");
@@ -406,15 +413,12 @@ $(document).on('change', '#checkbox', function() {
 // Start *** cancel & go back to mainpage *** //
 // ******************************************************************************* //
 
-//Now it works :) 
-
-    $("#cancel").on("click", function() {
+$("#cancel").on("click", function() {
         // empty order array in database
         array = [];
         localStorage.clear();
         window.location.href = 'index.html';
 
-        // window.location.href = "index.html";
     }); // end cancel order
 
 
@@ -430,11 +434,14 @@ $(document).on('change', '#checkbox', function() {
     
     //Wizard
     $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+
         var $target = $(e.target);
+    
         if ($target.parent().hasClass('disabled')) {
             return false;
         }
     });
+
 
     $(".next-step").click(function (e) {
         if (next_step) {
@@ -450,13 +457,12 @@ $(document).on('change', '#checkbox', function() {
 
 $(".prev-step").click(function (e) {
 
-    $(".prev-step").click(function (e) {
         var $active = $('.wizard .nav-tabs li.active');
         prevTab($active);
 
     });
-});
 
+}); // end document ready
 
 function nextTab(elem) {
     $(elem).next().find('a[data-toggle="tab"]').click();
@@ -464,4 +470,3 @@ function nextTab(elem) {
 function prevTab(elem) {
     $(elem).prev().find('a[data-toggle="tab"]').click();
 }
-}); // end document ready

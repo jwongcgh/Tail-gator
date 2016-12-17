@@ -4,14 +4,15 @@
 <head>
     <meta charset="utf-8">
     <!-- modified from a bootsnip template -->
-
     <title>Billing - Tailgator</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/billing.css">
+
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="assets/css/billing.css">
 </head>
 
 <body>
@@ -88,6 +89,7 @@
                                 <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
                                     <span class="round-tab">
 ======= -->
+
 <div id="wrapper1" class="container">
     <div class="row">
         <section>
@@ -118,8 +120,8 @@
                 </span>
             </a>
         </li>
-        <!-- <li role="presentation" class="disabled"> -->
-        <li role="presentation" >
+        <li role="presentation" class="disabled">
+        <!-- <li role="presentation" > -->
             <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
                 <span class="round-tab">
                     <i class="glyphicon glyphicon-ok"></i>
@@ -151,14 +153,14 @@
         </div>
         <div class="step-12">
             <div class="row" id="orderList">
-                <div class="table">
+                <div class="table" id="tableMain">
                     <table class="table table-hover">
                     <!-- <table class="table table-hover table-bordered"> -->
                         <thead>
                             <tr>
                                 <th>#</th>
                                 <th>Item Description</th>
-                                <th id="each">Price per item</th>
+                                <th id="each">$-Each</th>
                                 <th id="quant">Quantity</th>
                                 <th class="text-center">Update</th>
                                 <th id="total">Total</th>
@@ -173,7 +175,7 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td>Subtotal:</td>
+                                <td>SubTotal:</td>
                                 <td class="subtotal text-right"></td>
                             </tr>
                             <tr>
@@ -181,7 +183,7 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td>Delivery Fee:</td>
+                                <td>Shipping:</td>
                                 <td class="shipping text-right"></td>
                             </tr>
                             <tr>
@@ -209,8 +211,8 @@
     </div>
     <ul class="list-inline pull-right">
         <li>
-            <button type="button" id="cancel" class="btn btn-success prev-step">Cancel Order</button>
-
+            <button type="button" class="btn btn-success prev-step"><a href="index.html">Cancel Order</a></button>
+            <!-- <button id="cancel" type="button" class="btn btn-success">Cancel Order</button> -->
         </li>
         <li>
             <button type="button" class="btn btn-primary next-step">Save and continue</button>
@@ -318,7 +320,6 @@
 
 <!-- Paypal & order charges summary -->
 <div class="col-md-4" id="pay_info">
-
     <div class="row">
         <div id="sthg" class="col-md-12">
             
@@ -374,13 +375,16 @@
                 <iframe src="paypal.html" width="100%" height="125px" seamless="seamless" >Paypal</iframe>
             </div>
     <!-- end order charges summary -->
+            
+        <!-- </div> -->
 
+        
     </div>
     <!-- end Paypal & order charges summary -->
 </div>
 
 
-       
+        
         </div>
         <!-- end class step 2 -->
     <hr>
@@ -541,16 +545,12 @@
 <!-- end step 33 with div below-->
 <!-- </div>   -->
   <div class="clearfix"></div>                          
-                                <ul class="list-inline pull-right">
-                                    <li>
-                                        <button type="button" class="btn btn-default prev-step">Previous</button>
-                                    </li>
-                                    <li>
-            <button type="button" class="btn btn-primary next-step">Save and continue</button>
-
-
+    <ul class="list-inline pull-right">
+        <li>
+            <button type="button" class="btn btn-default prev-step">Previous</button>
         </li>
-                                </ul>
+       
+    </ul>
 </div>
 </div>
 <!-- *** End Page 3 / Step 3 ***************************************************** -->
@@ -720,7 +720,14 @@
     <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.js"></script>
     <script type="text/javascript" src="assets/javascript/billing.js"></script>
+<!-- end form @@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
+<!--             </div>
+        </section>
+    </div>
+</div> -->
+<script type="text/javascript" src="assets/javascript/billing.js"></script>
 </body>
 
 </html>
