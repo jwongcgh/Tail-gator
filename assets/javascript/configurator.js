@@ -1,6 +1,46 @@
  document.addEventListener('DOMContentLoaded', () => {
  	var packageItems;
 
+ 	var corsProxypath = 'http://cors-anywhere.herokuapp.com/'
+	var foodAPIpath = 'https://api.edamam.com/search?app_id=4856d9fa&app_key=9ce82851ef943348a6fda68504f6d8a3';
+	// var foodOfferings = ['burger', 'chili-cheese+dogs', 'pulled+pork', 'brisket', 'bbq+chicken', 'grilled+shrimp'];
+	
+	function ajaxCall (searchTerm) {
+		$.ajax({
+			url: `${corsProxypath}${foodAPIpath}&q=${searchTerm}`,
+			method: 'GET'})
+			.done((response) => {
+				$('#myModal').modal('show');
+				populateModal(response.hits[0].recipe);
+			});
+	}
+
+	function populateModal (response) {
+		console.log(response)
+		document.querySelector('.modal-body').innerHTML = '';
+		document.getElementById('myModalLabel').innerHTML = response.label;
+		document.getElementById('source').src = response.url;
+		document.getElementById('sourceName').innerHTML = response.source + '.com';
+		var div = document.createElement('div');
+		var img = document.createElement('img');
+		var ul = document.createElement('ul');
+		var p = document.createElement('p');
+		p.innerHTML = 'Ingredients';
+		var ingredientLines = response.ingredientLines;
+		img.src = response.image;
+		img.classList.add('img-responsive', 'center-block');
+		div.appendChild(img);
+		div.appendChild(p);
+		ingredientLines.map((x) => {
+			var li = document.createElement('li');
+			li.innerHTML = x;
+			ul.appendChild(li)
+		});
+		div.appendChild(ul);
+		document.querySelector('.modal-body').appendChild(div);
+
+	}
+
         if (localStorage.getItem('package')) {
             document.getElementById('package').innerHTML = localStorage.getItem('package');
             document.getElementById('yourPackage').innerHTML = localStorage.getItem('package');
@@ -78,7 +118,12 @@
                 quantity: quantity
             });
         }
-
+        Array.from(document.querySelectorAll('a.recipe')).map((x) => {
+        	x.addEventListener('click', (event) => {
+        		
+        		ajaxCall(event.currentTarget.getAttribute('data-recipe'))
+        	});
+        });
         populateTemplate(context,'addOnTemplate', '#addOnItems');
         populateTemplate(packageItems,'packageItemTemplate', '#itemsUL');
 

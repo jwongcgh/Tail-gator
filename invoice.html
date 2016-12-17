@@ -11,9 +11,95 @@
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+    <style type="text/css">
+        .logoImage {
+            height: 170%;
+            margin-top: -8px;
+        }
+        .footer {
+            width: 100%;
+            background: rgba(0,0,0,0.8);
+            padding-top: 1%;
+            padding-bottom: 1%;
+            border-top: solid 2px rgba(255,255,255,0.7);
+            color: white;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        body {
+            padding-top: 50px;
+            min-height: 100%;
+            position: relative;
+            padding-bottom: 6%;
+            background-size: 100%;
+        }
+        html {
+            height: 100%;
+        }
+        .signin {
+            height: 54px;
+            width: 54px;
+        }
+    </style>
 </head>
 
 <body>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><img class="img-responsive logoImage" src="assets/images/logob.png"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <a href="packages.html">Packages</a>
+                    </li>
+                </ul>
+                <ul class='nav navbar-nav navbar-right'>
+                    <li>
+
+                        <a href="billing.html">View Cart <span class="glyphicon glyphicon-shopping-cart"></span></a>
+                    </li>
+            
+                    <li>
+                        <button class='btn btn-default navbar-btn' id='signoutTab' style='display: none' onclick='signOut()'>Sign Out</button>
+                    </li>
+                    <li class="dropdown signinTab">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign In <span class="caret"></span></a>
+                        <ul class="dropdown-menu" style='padding:10px;'>
+                            <li>Sign in with:</li>
+                            <li>
+                                <img class='signin' id='googleP' src="assets/images/7-128.png">
+                                <img class='signin' id='facebook' src="assets/images/facebook-128.png">
+                                <img class='signin' src="assets/images/Twitter-icon.png">
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li><input type='text' id='loginEmail' placeholder='Email'></li>
+                            <li><input type='password' id='loginPW' placeholder='Password'></li>
+                            <li role="separator" class="divider"></li>
+                            <li><input type='submit' value='Submit' id='submit'></li>
+                            
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="signup.html">Sign Up</a>
+                    </li>
+                    <!-- End sign in block -->
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
 <div id="wrapper1" class="container">
     <div class="row">
         <section>
@@ -329,6 +415,15 @@
         </section>
     </div>
 </div>
+  <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="text-center">Copyright &copy; Tail-gator 2016. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 <script type="text/javascript" src="assets/javascript/billing.js"></script>
 </body>
 

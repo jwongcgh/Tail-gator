@@ -47,15 +47,19 @@ $(document).ready(function() {
     //retrieve
     array = JSON.parse(localStorage.getItem("myarray"));
 
+    if (array) {
+
     // display object values
     // &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& //
-                for (var a=0; a < array.length; a++) {
+        for (var a=0; a < array.length; a++) {
             console.log("value initial: " + Object.values(array[a]));
-   } 
+        }
+         populate();
+    } else window.location.href = 'packages.html';
     // &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& //
 
 
-    populate();
+   
 
 // ******************************************************************************* //
 // Start *** populates table with cart items *** //
@@ -169,7 +173,7 @@ $(document).ready(function() {
     function charges() {
         var subtotal = 0.00;
         var totalCharge = 0.00;
-        var shipping = 59.99;
+        var shipping = 10.00;
         var tax = 0.0825;
 
         // adds items prices
@@ -296,6 +300,7 @@ $(document).ready(function() {
     // end local test data
 
 $("#shipInfo").on("click", function () {
+        document.getElementById('pay_info').classList.remove('hidden');
         firstName = $("#firstName").val().trim();
         lastName = $("#lastName").val().trim();
         address = $("#address1").val().trim();
@@ -402,6 +407,7 @@ function checkInputs () {
         // console.log(delivDate);  
     } else {
         console.log("user does not exist");
+        return false;
     }
 
     $("#billedTo").html("Dr. Magoo" + "<br>" +

@@ -175,7 +175,7 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td>SubTotal:</td>
+                                <td>Subtotal:</td>
                                 <td class="subtotal text-right"></td>
                             </tr>
                             <tr>
@@ -183,7 +183,7 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td>Shipping:</td>
+                                <td>Delivery Fee:</td>
                                 <td class="shipping text-right"></td>
                             </tr>
                             <tr>
@@ -210,10 +210,11 @@
         </div>
     </div>
     <ul class="list-inline pull-right">
-        <li>
-        <li>
+         <!-- <li>
             <button type="button" id="invoiceLink" class="btn btn-default"><a href="invoice.html">invoiceLink</a></button>
-        </li>
+        </li> -->
+        <li>
+       
             <button type="button" class="btn btn-success prev-step"><a href="index.html">Cancel Order</a></button>
             <!-- <button id="cancel" type="button" class="btn btn-success">Cancel Order</button> -->
         </li>
@@ -322,7 +323,7 @@
 </div>  <!-- end shipping address -->
 
 <!-- Paypal & order charges summary -->
-<div class="col-md-4" id="pay_info">
+<div class="col-md-4 hidden" id="pay_info">
     <div class="row">
         <div id="sthg" class="col-md-12">
             
@@ -339,44 +340,18 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="text-center">
-                        What here</h4>
+                        Purchase with Paypal</h4>
                 </div>
                 <div class="panel-body">
-                    <table id="no-idea" class="table borderless">
-                        <thead>
-                            <tr>
-                                <th>no idea</th>
-                                <th class="text-right">Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- here goes items list from javascript-->
-                        </tbody>
-                        <tbody>
-                            <tr>
-                                <td>no idea</td>
-                                <td class="text-right"></td>
-                            </tr>
-                            <tr>
-                                <td>no idea</td>
-                                <td class="text-right"></td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td>n idea</td>
-                                <td class="text-right"></td>
-                            </tr>
-                        </tfoot>
-                    </table>
+                    <div id="payCont" class="col-md-12">
+            <!-- Paypal -->
+                <iframe src="paypal.html" width="100%" height="150px" seamless="seamless" >Paypal</iframe>
+            </div>
                 </div>
                 <!-- end panel-body -->
                 <!-- end panel -->
             </div>
-            <div id="payCont" class="col-md-12">
-            <!-- Paypal -->
-                <iframe src="paypal.html" width="100%" height="125px" seamless="seamless" >Paypal</iframe>
-            </div>
+            
     <!-- end order charges summary -->
             
         <!-- </div> -->
@@ -396,7 +371,7 @@
             <button type="button" class="btn btn-default prev-step">Previous</button>
         </li>
         <li>
-            <button id="shipInfo" type="button" class="btn btn-primary next-step disabled" >Save and continue</button>
+            <button id="shipInfo" type="button" class="btn btn-primary next-step" >Save and continue</button>
         </li>
     </ul>
 </div>
@@ -466,7 +441,7 @@
                                             <td class="no-line"></td>
                                             <td class="no-line"></td>
                                             <td class="no-line"></td>
-                                            <td class="no-line"><strong>Shipping:</strong></td>
+                                            <td class="no-line"><strong>Delivery Fee:</strong></td>
                                             <td class="no-line text-right shipping"></td>
                                         </tr>
                                         <tr>
@@ -671,7 +646,7 @@
                                                         <td class="no-line"></td>
                                                         <td class="no-line"></td>
                                                         <td class="no-line"></td>
-                                                        <td class="no-line"><strong>Tax</strong></td>
+                                                        <td class="no-line"><strong>Tax:</strong></td>
                                                         <td class="no-line text-right tax"></td>
                                                     </tr>
                                                     <tr>
