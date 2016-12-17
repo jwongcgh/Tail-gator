@@ -1,21 +1,3 @@
-// ******************************************************************************* //
-// Start *** firebase user data *** //
-// ******************************************************************************* //
-
-// Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBMWTK4u_9IMZLWtQMVO3YYWoxGCdXZdsc",
-    authDomain: "prown-e0b61.firebaseapp.com",
-    databaseURL: "https://prown-e0b61.firebaseio.com",
-    storageBucket: "prown-e0b61.appspot.com",
-    messagingSenderId: "709868742724"
-  };
-  firebase.initializeApp(config);
-
-    // Reference to the database service
-    var database = firebase.database();
-    var auth = firebase.auth()
-
 $(document).ready(function() {
 
 
@@ -35,6 +17,7 @@ $(document).ready(function() {
 
     // Reference to the database service
     var database = firebase.database();
+    var auth = firebase.auth()
 
     // ******************************************************************************* //
     // Start *** using array object *** //
@@ -317,24 +300,6 @@ $("#shipInfo").on("click", function () {
 
 
     // delivDate = $("#date").val();
-
-
-    
-
-// database store shipping info
-        database.ref('/users/' + "shipping").set({
-        firstName: firstName,
-        lastName: lastName,
-        address: address,
-        city: city,
-        state: state,
-        zip: zip,
-        email: email,
-        phone: phone,
-        // delivDate : delivDate,
-    });
-
-
 
 	    emptyfield = firstName.length * lastName.length * address.length * city.length * state.length *
                         zip.length * phone.length;
