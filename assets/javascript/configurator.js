@@ -19,7 +19,7 @@
 		console.log(response)
 		document.querySelector('.modal-body').innerHTML = '';
 		document.getElementById('myModalLabel').innerHTML = response.label;
-		document.getElementById('source').src = response.url;
+		document.getElementById('source').href = response.url;
 		document.getElementById('sourceName').innerHTML = response.source + '.com';
 		var div = document.createElement('div');
 		var img = document.createElement('img');
