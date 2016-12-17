@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Tail-gator</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="assets/css/style.css" rel="stylesheet">
+    <script src ="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><img class="img-responsive logoImage" src="assets/images/logob.png"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <a href="packages.html">Packages</a>
+                    </li>
+                </ul>
+                </ul>
+                <ul class='nav navbar-nav navbar-right'>
+                    <li>
+                        <a href="billing.html">View Cart <span class="glyphicon glyphicon-shopping-cart"></span></a>
+                    </li>
+                    <li>
+                        <button class='btn btn-default navbar-btn' id='signoutTab' style='display: none' onclick='signOut()'>Sign Out</button>
+                    </li>
+					<li>
+						<a href='profile.html' class='signoutTab' style='display: none;'>Profile</a>
+					</li>
+                    <li class="dropdown signinTab">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign In <span class="caret"></span></a>
+                        <ul class="dropdown-menu" style='padding:10px;'>
+                            <li>Sign in with:</li>
+                            <li>
+                                <img class='signin' id='googleP' src="assets/images/7-128.png">
+                                <img class='signin' id='facebook' src="assets/images/facebook-128.png">
+                                <img class='signin' src="assets/images/Twitter-icon.png">
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li><input type='text' id='loginEmail' placeholder='Email'></li>
+                            <li><input type='password' id='loginPW' placeholder='Password'></li>
+                            <li role="separator" class="divider"></li>
+                            <li><input type='submit' value='Submit' id='submit'></li>
+                            
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle='dropdown' role="button" aria-haspopup="true" aria-expanded="false">Sign Up</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-8 col-md-offset-2 signup">
+                <div class='row'>
+                    <div class='col-md-6'>
+				        <div class="input-group">
+				        	<span class="input-group-addon">First Name</span>
+				        	<input type="text" class="form-control" placeholder='Avogadro' id="sub_fname">
+				        </div>
+                    </div>
+                    <div class='col-md-6'>
+                        <div class="input-group">
+				        	<span class="input-group-addon">Last Name</span>
+				        	<input type="text" class="form-control" placeholder='Mole' id="sub_lname">
+				        </div>
+                    </div>
+                </div>
+				<br>
+                <div class='row'>
+                    <div class='col-md-6'>
+                        <div class="input-group">
+				        	<span class="input-group-addon">Email</span>
+				        	<input type="email" class="form-control" placeholder="Ex: A@mail.com" id="sub_email">
+				        </div>
+                    </div>
+                    <div class='col-md-6'>
+                        <div class="input-group">
+				        	<span class="input-group-addon">Phone #</span>
+				        	<input type="text" class="form-control" placeholder="Ex:6.022 x 10^23" id="sub_phone" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+				        </div>
+                    </div>
+                </div>
+				<br>
+                <div class="input-group">
+					<span class="input-group-addon">Password</span>
+						<input type="password" class="form-control" placeholder='Ex: 123456 or ABC123' id="sub_password">
+				</div>
+				<br>
+                <div class="input-group">
+					<span class="input-group-addon">Address</span>
+					<input type="text" class="form-control" placeholder="Address" id="sub_address">
+				</div>
+				<br>
+                <div class='row'>
+                    <div class='col-md-4'>
+                        <div class="input-group">
+				        	<span class="input-group-addon">City</span>
+				        	<input type="text" class="form-control" placeholder='Preferably Houston' id="sub_city">
+				        </div>
+                    </div>
+                    <div class='col-md-4'>
+                        <div class="input-group">
+				        	<span class="input-group-addon">State</span>
+				        	<input type="text" maxlength='2' class="form-control" placeholder="Ex: TX or NY or Sad" id="sub_state">
+				        </div>
+                    </div>
+                    <div class='col-md-4'>
+                        <div class="input-group">
+				        	<span class="input-group-addon">Zip</span>
+				        	<input type="text" class="form-control" placeholder="-pity Do Da" id="sub_zip">
+				        </div>
+                    </div>
+                </div>
+				<br>					
+					<button class="btn btn-primary" type="button" id='sub_signup' onclick="signup()">Submit</button>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="text-center">Copyright &copy; Tail-gator 2016. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+	<script src="assets/javascript/jquery.maskedinput.min.js" type="text/javascript"></script>
+    <script src="assets/javascript/script.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.js"></script>
+    <script src='assets/javascript/userAuth.js'></script>
+</body>
+
+</html>

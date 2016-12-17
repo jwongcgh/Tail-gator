@@ -13,7 +13,8 @@
 
     <link href="assets/css/style.css" rel="stylesheet">
     <script src ="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js" type="text/javascript"></script>
-    <!-- <script src="assets/javascript/configurator.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
     <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
     <script>
       // Initialize Firebase
@@ -28,9 +29,6 @@
     </script>
     <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', () => {
-
-
-
         // var packages = require('configurator').packages;
         if (localStorage.getItem('package')) {
             document.getElementById('package').innerHTML = localStorage.getItem('package');
@@ -40,10 +38,18 @@
             localStorage.clear();
             window.location.href = 'packages.html';
         });
+        
         document.getElementById('checkoutButton').addEventListener('click', () => {
-            window.location.href = 'billing.html';
 
+            window.location.href = 'billing.html';
         });
+
+        Array.from(document.querySelectorAll('input[type="radio"]')).map((x) => {
+             x.addEventListener('click', () => {
+                document.getElementById('checkoutButton').disabled = false;
+            });
+        });
+
     });
     </script>
 </head>
@@ -53,25 +59,50 @@
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div></div>
-            <div class="navbar-header">
+           <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Tail-gator</a>
+                <a class="navbar-brand" href="index.html"><img class="img-responsive logoImage" src="assets/images/logob.png"></a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-left">
-                    <li>
+                                       <li>
                         <a href="packages.html">Packages</a>
                     </li>
                 </ul>
                 <ul class='nav navbar-nav navbar-right'>
                     <li>
-                        <a  href="configurator.html">View Cart <span class="glyphicon glyphicon-shopping-cart"></span></a>
+                        <a  href="configurator.html">View Cart  <span class="glyphicon glyphicon-shopping-cart"></span></a>
+                    </li>
+                    <li>
+                        <button class='btn btn-default navbar-btn' id='signoutTab' style='display: none' onclick='signOut()'>Sign Out</button>
+                    </li>
+					<li>
+						<a href='profile.html' class='signoutTab' style='display: none;'>Profile</a>
+					</li>
+                    <li class="dropdown signinTab">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign In <span class="caret"></span></a>
+                        <ul class="dropdown-menu" style='padding:10px;'>
+                            <li>Sign in with:</li>
+                            <li>
+                                <img class='signin' id='googleP' src="assets/images/7-128.png">
+                                <img class='signin' id='facebook' src="assets/images/facebook-128.png">
+                                <img class='signin' src="assets/images/Twitter-icon.png">
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li><input type='text' id='loginEmail' placeholder='Email'></li>
+                            <li><input type='password' id='loginPW' placeholder='Password'></li>
+                            <li role="separator" class="divider"></li>
+                            <li><input type='submit' value='Submit' id='submit'></li>
+                            
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="signup.html" class="dropdown-toggle" data-toggle='dropdown' role="button" aria-haspopup="true" aria-expanded="false">Sign Up</a>
                     </li>
                 </ul>
             </div>
@@ -84,39 +115,91 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-            <div class="jumbotron jumbotronTransparent">
-                <h2 class='h2'> You chose the <span id="package"></span> person package.</h2>
-                <p>Please select any addons and continue to the checkout process</p>
-                <a href="billing.html">Checkout</a>
+                <div class="jumbotron">
+                    <h2 class='h2'> You chose the <span id="package"></span> person package.</h2>
+                    <p>Please select your entree and any addons to the checkout process.</p>
+                </div>
+            </div>
+        </div>
+        <div class="bgTransparency configBody">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 class='h2'>Choose your entree</h2>
+                    <div class="entreeDiv">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <label class="radio"><input type="radio" name="optradio">Burgers</label>
+                        </li>
+                        <li class="list-group-item">
+                            <label class="radio"><input type="radio" name="optradio">Hotdogs</label>
+                        </li>
+                        <li class="list-group-item">
+                            <label class="radio"><input type="radio" name="optradio">Seafood</label>
+                        </li>
+                        <li class="list-group-item">
+                            <label class="radio"><input type="radio" name="optradio">Mix</label>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+                <!-- <div class="col-md-2">
+                    <div class="input-group">
+                      <span class="input-group-btn">
+                        <button class="btn btn-secondary disabled" type="button"><span class="glyphicon glyphicon-minus"></span></button>
+                      </span>
+                      <input type="text" class="form-control disabled" placeholder="Product name" value="0" min="1" max="40">
+                      <span class="input-group-btn">
+                        <button class="btn btn-secondary  disabled" type="button"><span class="glyphicon glyphicon-plus"></span></button>
+                      </span>
+                    </div>
+                </div> -->
+            <!-- </div> -->
+            <!-- <div class="row"> -->
+                <div class="col-md-6">
+                <h2 class="h2">Add-on Items</h2>
+
+
                 <ul class="list-group">
+                    
                     <li class="list-group-item">
-                    Tents
+                    
+                   <!--  <div class="input-group">
+                      <span class="input-group-addon">
+                        <input type="checkbox" aria-label="...">
+                      </span>
+                      <input type="text" class="form-control" aria-label="...">
+                    </div> -->
+                        Chairs
+                    <!-- </div> -->
                     </li>
                     <li class="list-group-item">
-                    Tents
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox" class="largerCheckbox" value="">
+                            Tents
+                            <span class="pull-right">Price: 19.99</span>
+                          </label>
+
+                        </div>
                     </li>
                     <li class="list-group-item">
-                    Tents
+                        Whatevs
                     </li>
                     <li class="list-group-item">
-                    Tents
+                        Cooler
                     </li>
                     <li class="list-group-item">
-                    Tents
+                        Blerg
                     </li>
                 </ul>
-                <button id="checkoutButton" class="btn btn-primary pull-right" type="button">Checkout</button>
+                <button id="checkoutButton" class="btn btn-primary pull-right" type="button" disabled>Checkout</button>
                 <button id="cancelButton" class="btn btn-default pull-right" type="button">Cancel Order</button>
                 
             </div>
-            </div>
         </div>
-        <div class="col-md-12">
-            <div class="row">
-                <div class="content-placeholder"></div>
-            </div>
         </div>
     </div>
+        
     <!-- /.container -->
 
     <!-- Footer -->
@@ -129,6 +212,9 @@
             </div>
         </div>
     </footer>
+    <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.js"></script>
+    <script src='assets/javascript/userAuth.js'></script>
    
 </body>
 </html>

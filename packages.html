@@ -22,13 +22,16 @@
                 <img src="{{image}}" alt="{{name}}">
                 <div class="caption">
                     <h4 class="text-center">
-                        <a href="#"><span class="glyphicon glyphicon-user"></span> {{name}} people (approx.)</a>
+                        <span class="glyphicon glyphicon-user"></span> {{name}} people (approx.)
                     </h4>
                     <hr class="packageHR">
                     <p class="packageDescription">
                     {{description}}</p>
                     <p>Package includes:</p>
                     <ul class="list-group">
+                        <li class="list-group-item">
+                            {{name}} portions of food
+                        </li>
                         <li class="list-group-item">
                             {{features.grill}} grills
                         </li>
@@ -78,18 +81,43 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Tail-gator</a>
+                <a class="navbar-brand" href="index.html"><img class="img-responsive logoImage" src="assets/images/logob.png"></a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-left">
-                   
-                    <li>
+                                       <li>
                         <a href="packages.html">Packages</a>
                     </li>
                 </ul>
                 <ul class='nav navbar-nav navbar-right'>
                     <li>
-                        <a  href="configurator.html">View Cart <span class="glyphicon glyphicon-shopping-cart"></span></a>
+                        <a  href="configurator.html">View Cart  <span class="glyphicon glyphicon-shopping-cart"></span></a>
+                    </li>
+                    <li>
+                        <button class='btn btn-default navbar-btn' id='signoutTab' style='display: none' onclick='signOut()'>Sign Out</button>
+                    </li>
+					<li>
+						<a href='profile.html' class='signoutTab' style='display: none;'>Profile</a>
+					</li>
+                    <li class="dropdown signinTab">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign In <span class="caret"></span></a>
+                        <ul class="dropdown-menu" style='padding:10px;'>
+                            <li>Sign in with:</li>
+                            <li>
+                                <img class='signin' id='googleP' src="assets/images/7-128.png">
+                                <img class='signin' id='facebook' src="assets/images/facebook-128.png">
+                                <img class='signin' src="assets/images/Twitter-icon.png">
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li><input type='text' id='loginEmail' placeholder='Email'></li>
+                            <li><input type='password' id='loginPW' placeholder='Password'></li>
+                            <li role="separator" class="divider"></li>
+                            <li><input type='submit' value='Submit' id='submit'></li>
+                            
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="signup.html" class="dropdown-toggle" data-toggle='dropdown' role="button" aria-haspopup="true" aria-expanded="false">Sign Up</a>
                     </li>
                 </ul>
             </div>
@@ -105,6 +133,8 @@
             <div class="jumbotron jumbotronTransparent">
                 <h2 class='h2'>Please select a package below.</h2>
                 <p>We offer packages for 10, 20, 30, or 40 people! Pick the package that suits your tailgate and we can start customizing for your needs.</p>
+                <p>We'll take care of prep and delivery!</p>
+
             </div>
             </div>
         </div>
@@ -126,6 +156,10 @@
             </div>
         </div>
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.js"></script>
+    <script src='assets/javascript/userAuth.js'></script>
    
 </body>
 </html>

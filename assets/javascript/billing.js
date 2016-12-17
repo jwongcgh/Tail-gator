@@ -404,12 +404,11 @@ $(document).on('change', '#checkbox', function() {
 // Start *** cancel & go back to mainpage *** //
 // ******************************************************************************* //
 
-
-
-    $("#cancel").on("click", function() {
+$("#cancel").on("click", function() {
         // empty order array in database
-        localStorage.clear();
         array = [];
+        localStorage.clear();
+        window.location.href = 'index.html';
 
     }); // end cancel order
 
