@@ -1,3 +1,21 @@
+// ******************************************************************************* //
+// Start *** firebase user data *** //
+// ******************************************************************************* //
+
+// Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBMWTK4u_9IMZLWtQMVO3YYWoxGCdXZdsc",
+    authDomain: "prown-e0b61.firebaseapp.com",
+    databaseURL: "https://prown-e0b61.firebaseio.com",
+    storageBucket: "prown-e0b61.appspot.com",
+    messagingSenderId: "709868742724"
+  };
+  firebase.initializeApp(config);
+
+    // Reference to the database service
+    var database = firebase.database();
+    var auth = firebase.auth()
+
 $(document).ready(function() {
 
 
@@ -199,6 +217,32 @@ $(document).ready(function() {
     $('#subtpay').val(toPayPal);
     // console.log($('#subtpay').val());
     } // end charges function
+    
+    auth.onAuthStateChanged(function(user) {
+        if(user) {
+            database.ref('users/' + auth.currentUser.email.replace('.com','').toUpperCase()).once('value').then(function(snapshot) {
+                var snapshot = snapshot.val()
+                $('.signinTab').hide();
+                $('#signoutTab').show();
+                $('#firstName').val(snapshot.fname)
+                $('#lastName').val(snapshot.lname)
+                $('#address1').val(snapshot.address.street)
+                $('#city').val(snapshot.address.city)
+                $('#state').val(snapshot.address.state)
+                $('#zip').val(snapshot.address.zip)
+                $('#phone').val(snapshot.phone)
+            })
+        } else {
+            if (window.location.pathname.match('/profile.html')) {
+                window.location.assign('index.html');
+            }
+        }
+    })
+    $('#signoutTab').on('click', function() {
+        auth.signOut();
+        location.reload();
+        
+    })
 
 // ******************************************************************************* //
 // Start *** update cart at checkout *** //
