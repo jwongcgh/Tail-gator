@@ -1,112 +1,87 @@
-document.addEventListener('DOMContentLoaded', () => {
-var context = { // Define data object
-		package: [
-			{	
-				"name": "10",
-				"price": 59.99,
-				"description": "Suitable for approximately 10 people.",
-				'image': "assets/images/package-10.jpg",
-				'features': {
-					grill: 1,
-					tent: 1,
-					chairs: 6,
-					tables: 1
-				}
-			},
-			{	
-				"name": "20",
-				"price": 119.99,
-				"description": "Suitable for approximately 20 people.",
-				'image': "assets/images/package-20.gif",
-				'features': {
-					grill: 1,
-					tent: 1,
-					chairs: 12,
-					tables: 2
-				}
-			},
-			{	
-				"name": "30",
-				"price": 199.99,
-				"description": "Suitable for approximately 30 people.",
-				'image': "assets/images/package-30.jpg",
-				'features': {
-					grill: 2,
-					tent: 2,
-					chairs: 18,
-					tables: 3
-				}
-			},
-			{	
-				"name": "40",
-				"price": 259.99,
-				"description": "Suitable for approximately 40 people.",
-				'image': "assets/images/package-40.jpg",
-				'features': {
-					grill: 2,
-					tent: 2,
-					chairs: 24,
-					tables: 4
-				}
-			},
-		]
-}
+ document.addEventListener('DOMContentLoaded', () => {
+ 	var packageItems;
 
-var myarray = [];
+        if (localStorage.getItem('package')) {
+            document.getElementById('package').innerHTML = localStorage.getItem('package');
+            document.getElementById('yourPackage').innerHTML = localStorage.getItem('package');
+            packageItems = { items:  JSON.parse(localStorage.getItem('myarray'))}
+            packageItems.items.splice(0, 1); //Remove the default package item
+        } else window.location.href = 'packages.html';
 
-var populatePackages = function (context) {
-		var templateScript = document.getElementById('foodTemplate').innerHTML;
-		// Compile the template
-		var template = Handlebars.compile(templateScript);
-		// Pass our data to the template
-		var compiledHTML = template(context);
-		// Add the compiled html to the page
-		document.querySelector('.content-placeholder').innerHTML = compiledHTML;
-}
+        document.getElementById('cancelButton').addEventListener('click', () => {
+            localStorage.clear();
+            window.location.href = 'packages.html';
+        });
+        
+        document.getElementById('checkoutButton').addEventListener('click', () => {
+            Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map((x) => {
+                addItem(x.getAttribute('data-name'), x.getAttribute('data-price'), x.getAttribute('data-quantity'));
+            });
+            var entreeSelection = document.querySelector('input[type="radio"]:checked').getAttribute('data-entree');
+            myarray.splice(1, 0, {
+                foodName: entreeSelection,
+                price: 0.00,
+                quantity: localStorage.getItem('package'),
+            })
+            localStorage.setItem('myarray', JSON.stringify(myarray));
+            window.location.href = 'billing.html';
+        });
 
-var addItem = function (name, price, quantity) {
-	myarray.push({
-		foodName: name,
-		price: price,
-		quantity: quantity
-	});
-}
+        Array.from(document.querySelectorAll('input[type="radio"]')).map((x) => {
+             x.addEventListener('click', () => {
+                document.getElementById('checkoutButton').disabled = false;
+            });
+        });
 
-var buttonClicked = function (event) {
-	// context.package
-	var packageSelected = event.currentTarget.getAttribute('data-package');
-	localStorage.setItem('package', packageSelected);
-	// console.log(localStorage.getItem('package'));
-	
-	var filteredArray = context.package.filter((x) => {
-		if (x.name == packageSelected) return true;
-	});
-	var thisPackage = filteredArray[0];
-	//Add package name
-	addItem(`${thisPackage.name} person package`, thisPackage.price, 1
-	);
-	//Get features' keys and iterate of that array
-	var package = Object.getOwnPropertyNames(thisPackage.features);
-	package.map((x) => {
-		addItem(x, 0.00, thisPackage.features[x]);
-	});
-	localStorage.setItem('myarray', JSON.stringify(myarray));
+        var context = { // Define data object
+            addOns: [
+                {   
+                    name: "Water bottles",
+                    price: 0.99,
+                    quantity: 6
+                },
+                {   
+                    name: "Cooler",
+                    price: 10.99,
+                    quantity: 1
+                },
+                {   
+                    name: "60 inch television",
+                    price: 30.99,
+                    quantity: 1
+                },
+                {   
+                    name: "Slip 'n slide",
+                    price: 35.99,
+                    quantity: 1
+                },
+           
+            ]
+        }
+
+        var myarray = JSON.parse(localStorage.getItem('myarray'));
+
+        var populateTemplate = function (context, scriptID, selector) {
+            var templateScript = document.getElementById(scriptID).innerHTML;
+            // Compile the template
+            var template = Handlebars.compile(templateScript);
+            // Pass our data to the template
+            var compiledHTML = template(context);
+            // Add the compiled html to the page
+            document.querySelector(selector).innerHTML = compiledHTML;
+        }
+
+        var addItem = function (name, price, quantity) {
+            myarray.push({
+                foodName: name,
+                price: price,
+                quantity: quantity
+            });
+        }
+
+        populateTemplate(context,'addOnTemplate', '#addOnItems');
+        populateTemplate(packageItems,'packageItemTemplate', '#itemsUL');
 
 
 
-	window.location.href = 'configurator.html';
-
-
-} 
-
-populatePackages(context);
-//Click listeners for each button
-Array.from(document.querySelectorAll('div.priceBlock button')).map((x) => {
-	x.addEventListener('click', buttonClicked);
-});
-// module.exports = {
-// 	packages: context,
-// }
-
-
-});//DOMContentLoaded
+    });
