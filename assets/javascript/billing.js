@@ -254,7 +254,7 @@ $(document).ready(function() {
     var state;
     var address;
     var phone;
-    var delivDate = "12/10/1978";
+    var delivDate = "";
     var emptyfield = 0
     // start local test data
     // var firstName = "Howdy";
@@ -277,9 +277,8 @@ $("#shipInfo").on("click", function () {
         zip = $("#zip").val().trim();
         email = $("#email1").val().trim();
         phone = $("#phone").val().trim();
-
-
-    // delivDate = $("#date").val();
+        delivDate = document.getElementById("datepick").value;
+        console.log(delivDate);
 
 
     
@@ -295,7 +294,7 @@ $("#shipInfo").on("click", function () {
         zip: zip,
         email: email,
         phone: phone,
-        // delivDate : delivDate,
+        delivDate: delivDate,
     });
 
 
@@ -310,12 +309,8 @@ $("#shipInfo").on("click", function () {
                     address + "<br>" +
                     city + "<br>" +
                     state + ", " + zip);
-
-        $("#deliverTo2").html(firstName + " " + lastName + "<br>" +
-                    address + "<br>" +
-                    city + "<br>" +
-                    state + ", " + zip);
-
+        $("#deliverOn").html(delivDate);
+        
         checkInputs();
 
 });
@@ -323,6 +318,12 @@ $("#shipInfo").on("click", function () {
 // ******************************************************************************* //
 // Start *** basic user input validation - shipping info  *** //
 // ******************************************************************************* //
+
+
+
+
+
+
 
 
 function checkInputs () {
@@ -348,8 +349,9 @@ function checkInputs () {
 // ******************************************************************************* //
 // Start *** read databse for shipping info  *** //
 // ******************************************************************************* //
-
-    database.ref('/users/' + 'shipping').on("value", function(snapshot){
+    
+    // database.ref('/users/' + 'shipping').on("value", function(snapshot){
+    database.ref('/users/').on("value", function(snapshot){
     if (snapshot.child('email').exists()) {
     firstName = snapshot.val().firstName;
     lastName = snapshot.val().lastName;
@@ -359,6 +361,7 @@ function checkInputs () {
     zip = snapshot.val().zip;
     email = snapshot.val().email;
     phone = snapshot.val().phone; 
+    delivDate = snapshot.val().delivDate;
 
     // console.log("firstName: " + firstName);
     // console.log("lastName: " + lastName);
@@ -371,7 +374,26 @@ function checkInputs () {
         // console.log(delivDate);  
     } else {
         console.log("user does not exist");
-    }      
+    }
+
+    $("#billedTo").html("Dr. Magoo" + "<br>" +
+                    "1 Main St" + "<br>" +
+                    "Hoouton" + "<br>" +
+                    "TX, 98765");
+
+
+    $("#deliverTo").html("Hannah Joe" + "<br>" +
+                    "222 Helm St" + "<br>" +
+                    "Houston" + "<br>" +
+                    "TX, 77005");
+        $("#deliverOn").html(delivDate);
+    // $("#deliverTo").html(firstName + " " + lastName + "<br>" +
+    //                 address + "<br>" +
+    //                 city + "<br>" +
+    //                 state + ", " + zip);
+    //     $("#deliverOn").html(delivDate);
+
+
 });
 
 // ******************************************************************************* //
